@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://nlokm5n351yg"]
+
+[ext_resource type="Script" uid="uid://dkyeeo7oyrld7" path="res://Drops/ResourceDrop.gd" id="1_nfj8k"]
+[ext_resource type="Texture2D" uid="uid://cbjonihogo3vj" path="res://items_sheet.png" id="1_r4og2"]
+[ext_resource type="FontFile" uid="uid://b2v76ut8nn70a" path="res://Fonts/Ohrenstead.ttf" id="3_l4t51"]
+
+[node name="Log" type="Node2D" unique_id=2060171734]
+script = ExtResource("1_nfj8k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1585511986]
+texture = ExtResource("1_r4og2")
+region_enabled = true
+region_rect = Rect2(384, 272, 16, 15)
+
+[node name="Label" type="Label" parent="." unique_id=877391188]
+offset_left = 10.0
+offset_top = -8.0
+offset_right = 19.0
+offset_bottom = 6.0
+theme_override_fonts/font = ExtResource("3_l4t51")
+text = "x1"

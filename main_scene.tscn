@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://btsg5v0xcdyj7"]
+
+[ext_resource type="PackedScene" uid="uid://doxjbdm63fowk" path="res://Mask/mask.tscn" id="1_0f027"]
+[ext_resource type="PackedScene" uid="uid://bddb85qrbwldg" path="res://Props/tree.tscn" id="2_2c62f"]
+[ext_resource type="PackedScene" uid="uid://5jq3s1875npx" path="res://NPCs/npc.tscn" id="3_gyfs4"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0f027"]
+
+[node name="MainScene" type="Node2D" unique_id=1830486730]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=670440094]
+
+[node name="ColorRect" type="TextureRect" parent="." unique_id=1625101231]
+modulate = Color(0.36807227, 0.2231288, 0.24377981, 1)
+offset_left = -219.0
+offset_top = -122.0
+offset_right = 290.33707
+offset_bottom = 195.0
+texture = SubResource("PlaceholderTexture2D_0f027")
+
+[node name="Mask" parent="." unique_id=2066154547 instance=ExtResource("1_0f027")]
+
+[node name="Tree" parent="." unique_id=47681241 instance=ExtResource("2_2c62f")]
+position = Vector2(129, -58)
+
+[node name="NPC" parent="." unique_id=391261364 instance=ExtResource("3_gyfs4")]
+position = Vector2(-45, -31)

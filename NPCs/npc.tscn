@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://5jq3s1875npx"]
+
+[ext_resource type="Script" uid="uid://cmwcwr5nnkqoh" path="res://NPCs/npc.gd" id="1_vxakg"]
+[ext_resource type="Texture2D" uid="uid://ccx5eno1d8ln" path="res://NPCs/Blacksmith 01.png" id="2_k7mck"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxcha"]
+size = Vector2(14, 16)
+
+[node name="NPC" type="Node2D" unique_id=391261364]
+script = ExtResource("1_vxakg")
+text = "Yo man howdy"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1166322163]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=964374194]
+shape = SubResource("RectangleShape2D_xxcha")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=324754125]
+texture = ExtResource("2_k7mck")
+region_enabled = true
+region_rect = Rect2(1, 0, 14, 16)
