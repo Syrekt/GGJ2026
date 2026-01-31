@@ -15,7 +15,6 @@ func start_typing() -> void:
 
 func _process(_delta: float) -> void:
 	label.text = text.substr(0, visible_characters)
-	Debugger.printui("visible_characters: "+str(visible_characters))
 
 func _on_timer_timeout() -> void:
 	hide()

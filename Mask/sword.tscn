@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://e81xhjvg1kie"]
 
 [ext_resource type="Script" uid="uid://78kh4nyxijkm" path="res://Mask/sword.gd" id="1_5ykeq"]
+[ext_resource type="Texture2D" uid="uid://vmxw4c7iiur1" path="res://Mask/sword.png" id="2_rfkgt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b3eq5"]
 
@@ -9,12 +10,14 @@ rotation = -1.5707964
 collision_layer = 0
 collision_mask = 20
 script = ExtResource("1_5ykeq")
+rotation_offset = -3.142
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=54464276]
 position = Vector2(0, 30)
 shape = SubResource("CapsuleShape2D_b3eq5")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=13674268]
+visible = false
 offset_left = -3.0
 offset_top = 18.0
 offset_right = 3.0
@@ -23,3 +26,17 @@ offset_bottom = 40.0
 [node name="WhooshSFX" type="FmodEventEmitter2D" parent="." unique_id=1038278329]
 event_name = "event:/SwordWoosh"
 event_guid = "{c807c40a-1112-411d-a546-804ed8c10b7d}"
+
+[node name="HitSFX" type="FmodEventEmitter2D" parent="." unique_id=1103593489]
+event_name = "event:/EnemyHurtBlade"
+event_guid = "{6c21e698-f721-4f6c-ab33-f8331ae10730}"
+z_index = 1
+
+[node name="DeathSFX" type="FmodEventEmitter2D" parent="." unique_id=603271428]
+event_name = "event:/EnemyDeathBlade"
+event_guid = "{1ef3cc2f-12ab-4402-be9b-25430d53a201}"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1876237777]
+position = Vector2(-1.3113416e-06, 30)
+rotation = 1.5707964
+texture = ExtResource("2_rfkgt")

@@ -11,9 +11,12 @@ var drop := preload("res://Drops/log.tscn")
 func take_damage(source,damage:=1) -> void:
 	if sprite.animation == "cut": return
 
+	$ChopSFX.play()
+	if source is Fists: return
+
 	print("hurt")
 	sprite.play("hurt")
-	#hp_cur -= damage
+	hp_cur -= damage
 
 	var _drop := drop.instantiate()
 	_drop.global_position = global_position
@@ -32,7 +35,6 @@ func take_damage(source,damage:=1) -> void:
 	tween_rot.tween_property(sprite, "rotation_degrees", randi_range(-2, 2), ttime)
 	tween_rot.tween_property(sprite, "rotation_degrees", 0, ttime)
 
-	$ChopSFX.play()
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

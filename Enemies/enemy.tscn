@@ -65,15 +65,16 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_572h1")
 
 [node name="HurtTimer" type="Timer" parent="." unique_id=837807429]
+wait_time = 0.5
 one_shot = true
 autostart = true
 
 [node name="HurtSFX" type="FmodEventEmitter2D" parent="." unique_id=338551618]
-event_name = "event:/EnemyHurt"
+event_name = "event:/EnemyHurtBlade"
 event_guid = "{6c21e698-f721-4f6c-ab33-f8331ae10730}"
 
 [node name="DeathSFX" type="FmodEventEmitter2D" parent="." unique_id=808622493]
-event_name = "event:/EnemyDeath"
+event_name = "event:/EnemyDeathBlade"
 event_guid = "{1ef3cc2f-12ab-4402-be9b-25430d53a201}"
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

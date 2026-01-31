@@ -1,13 +1,44 @@
 [gd_scene format=3 uid="uid://dl0rlm8qdg64"]
 
-[ext_resource type="Script" uid="uid://djwko62h6ilgl" path="res://mask/fists.gd" id="1_lr525"]
+[ext_resource type="Script" uid="uid://djwko62h6ilgl" path="res://Mask/fists.gd" id="1_lr525"]
+[ext_resource type="Texture2D" uid="uid://cgl6bhicy2ft6" path="res://Mask/fist.png" id="2_02x86"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_02x86"]
 
 [node name="Fists" type="Area2D" unique_id=633064068]
+z_index = 1
+collision_layer = 0
+collision_mask = 20
 script = ExtResource("1_lr525")
+attack_force = 35.0
+rotation_offset = -1.571
+lock_direction_while_attacking = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=440136265]
+position = Vector2(0, 20)
 shape = SubResource("CircleShape2D_02x86")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2043280931]
+position = Vector2(0, 20)
+rotation = 1.5707964
+texture = ExtResource("2_02x86")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2136251199]
+visible = false
+offset_left = -7.0
+offset_top = 15.0
+offset_right = 7.0
+offset_bottom = 25.0
+metadata/_edit_use_anchors_ = true
+
+[node name="WooshSFX" type="FmodEventEmitter2D" parent="." unique_id=108348585]
+event_name = "event:/FistsWoosh"
+event_guid = "{a2eb8823-1ee5-4d82-9d32-de60ab946ca7}"
+
+[node name="HitSFX" type="FmodEventEmitter2D" parent="." unique_id=496277927]
+event_name = "event:/EnemyHurtFists"
+event_guid = "{956b12fa-6dea-4dda-a935-315a9d744ee6}"
+
+[node name="DeathSFX" type="FmodEventEmitter2D" parent="." unique_id=1573563462]
+event_name = "event:/EnemyDeathFists"
+event_guid = "{7cc0f1dc-0404-456f-9fdf-4ab74d9287ef}"

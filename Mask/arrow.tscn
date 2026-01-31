@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dmtp64o0wma7d"]
+
+[ext_resource type="Script" uid="uid://ce2rwac157eq4" path="res://Mask/arrow.gd" id="1_i1cu7"]
+[ext_resource type="Texture2D" uid="uid://vqgnelr67smx" path="res://Mask/arrow.png" id="1_wpvrw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1cu7"]
+size = Vector2(8, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xiw7v"]
+size = Vector2(13, 6)
+
+[node name="Arrow" type="CharacterBody2D" unique_id=1054106644]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_i1cu7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=505776462]
+position = Vector2(7, 0)
+shape = SubResource("RectangleShape2D_i1cu7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=660947361]
+texture = ExtResource("1_wpvrw")
+
+[node name="Lifetime" type="Timer" parent="." unique_id=585375402]
+wait_time = 5.0
+autostart = true
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=943460442]
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1558008100]
+position = Vector2(6.5, 0)
+shape = SubResource("RectangleShape2D_xiw7v")
+
+[node name="HitSFX" type="FmodEventEmitter2D" parent="." unique_id=1581731332]
+event_name = "event:/EnemyHurtArrow"
+event_guid = "{ac7b58c1-d929-4d3a-922a-445cc425a584}"
+
+[node name="DeathSFX" type="FmodEventEmitter2D" parent="." unique_id=1289241386]
+event_name = "event:/EnemyDeathArrow"
+event_guid = "{81e06b20-b0de-46a3-820f-e4114496bb6c}"
+
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

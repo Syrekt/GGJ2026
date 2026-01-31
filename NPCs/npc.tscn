@@ -46,6 +46,7 @@ dialogue_resource = ExtResource("2_2pim4")
 has_dialogue = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1166322163]
+position = Vector2(0, -8)
 collision_layer = 32
 collision_mask = 0
 
@@ -53,6 +54,7 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_xxcha")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=324754125]
+position = Vector2(0, -8)
 texture = ExtResource("2_k7mck")
 region_enabled = true
 region_rect = Rect2(1, 0, 14, 16)

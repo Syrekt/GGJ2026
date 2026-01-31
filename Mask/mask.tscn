@@ -3,11 +3,8 @@
 [ext_resource type="Script" uid="uid://goanewj4y6k8" path="res://Mask/mask.gd" id="1_f250e"]
 [ext_resource type="Shader" uid="uid://bl8g44obhi3lq" path="res://outline.gdshader" id="2_acme0"]
 [ext_resource type="Texture2D" uid="uid://de7qrbl8boo0q" path="res://Mask/Hero 01.png" id="2_bp1os"]
-[ext_resource type="Texture2D" uid="uid://lvmyy3k8qa3m" path="res://Mask/ranger.png" id="2_qtqal"]
 [ext_resource type="Script" uid="uid://b7dk8vvgll08y" path="res://fsm.gd" id="3_d7d1v"]
-[ext_resource type="Texture2D" uid="uid://deesqqmarijo4" path="res://Mask/fighter.png" id="3_kpqyf"]
 [ext_resource type="Script" uid="uid://dxty2x4rcsx4n" path="res://Mask/States/idle.gd" id="4_jy6tj"]
-[ext_resource type="Texture2D" uid="uid://cmty0ji1oqda6" path="res://Mask/brawler.png" id="4_k6qtf"]
 [ext_resource type="Script" uid="uid://bfxfrdrim0si2" path="res://Mask/States/walk.gd" id="5_wnnhb"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_b3eq5"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_kvpt5"]
@@ -16,6 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://mt58k6oijr0t" path="res://UI/health_progress.png" id="11_4rbsa"]
 [ext_resource type="Script" uid="uid://bdevra7tti3er" path="res://Mask/health.gd" id="12_4rbsa"]
 [ext_resource type="FontFile" uid="uid://b2v76ut8nn70a" path="res://Fonts/Ohrenstead.ttf" id="14_dpjmy"]
+[ext_resource type="Texture2D" uid="uid://beg180gxn005h" path="res://UI/GUI.png" id="14_qtqal"]
+[ext_resource type="Texture2D" uid="uid://d32onwxpm2fb1" path="res://UI/button_normal.png" id="15_kpqyf"]
+[ext_resource type="Texture2D" uid="uid://br7gqxn5f5k34" path="res://UI/button_pressed.png" id="16_k6qtf"]
+[ext_resource type="Texture2D" uid="uid://bn5uhhjaiwkg6" path="res://UI/button_hover.png" id="17_glqgf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cq5j3"]
 
@@ -330,9 +331,7 @@ motion_mode = 1
 slide_on_ceiling = false
 script = ExtResource("1_f250e")
 direction = Vector2(-1, 1)
-ranger_tex = ExtResource("2_qtqal")
-fighter_tex = ExtResource("3_kpqyf")
-brawler_tex = ExtResource("4_k6qtf")
+mask_class = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2087326779]
 visible = false
@@ -449,5 +448,70 @@ script = ExtResource("12_4rbsa")
 event_name = "event:/PlayerHurt"
 event_guid = "{ae452535-a892-48b3-9c44-fa718771c01e}"
 
+[node name="Restart Menu" type="CanvasLayer" parent="." unique_id=1373233539]
+visible = false
+
+[node name="Control" type="Control" parent="Restart Menu" unique_id=1340642754]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Restart Menu/Control" unique_id=670262857]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 163.0
+offset_right = 389.0
+offset_bottom = 227.0
+texture = ExtResource("14_qtqal")
+region_rect = Rect2(81, 97, 30, 30)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="Restart" type="TextureButton" parent="Restart Menu/Control/NinePatchRect" unique_id=831849134]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 13.0
+offset_right = 53.0
+offset_bottom = 27.0
+texture_normal = ExtResource("15_kpqyf")
+texture_pressed = ExtResource("16_k6qtf")
+texture_hover = ExtResource("17_glqgf")
+texture_focused = ExtResource("17_glqgf")
+
+[node name="Label" type="Label" parent="Restart Menu/Control/NinePatchRect/Restart" unique_id=29660714]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 40.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("14_dpjmy")
+text = "Restart"
+
+[node name="Exit" type="TextureButton" parent="Restart Menu/Control/NinePatchRect" unique_id=514747533]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 36.0
+offset_right = 100.0
+offset_bottom = 50.0
+texture_normal = ExtResource("15_kpqyf")
+texture_pressed = ExtResource("16_k6qtf")
+texture_hover = ExtResource("17_glqgf")
+texture_focused = ExtResource("17_glqgf")
+
+[node name="Label2" type="Label" parent="Restart Menu/Control/NinePatchRect/Exit" unique_id=81129728]
+layout_mode = 0
+offset_left = 15.0
+offset_right = 32.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("14_dpjmy")
+text = "Exit"
+
 [connection signal="area_entered" from="NPCDetector" to="." method="_on_npc_detector_area_entered"]
 [connection signal="value_changed" from="UI/Control/VBoxContainer/Health" to="UI/Control/VBoxContainer/Health" method="_on_value_changed"]
+[connection signal="pressed" from="Restart Menu/Control/NinePatchRect/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Restart Menu/Control/NinePatchRect/Exit" to="." method="_on_exit_pressed"]

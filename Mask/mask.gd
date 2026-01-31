@@ -17,6 +17,7 @@ var bow_resource	:= preload("res://Mask/bow.tscn")
 
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var quest	: Label = $UI/Control/Quest
+@onready var restart_menu: CanvasLayer = $"Restart Menu"
 
 @export var ranger_tex	: Texture
 @export var fighter_tex : Texture
@@ -30,19 +31,30 @@ enum CLASSES { FIGHTER, RANGER, BRAWLER}
 
 func _ready() -> void:
 	quest.text = "Bring 3 woods"
+	restart_menu.hide()
 
 	update_class()
 
 func _process(delta: float) -> void:
-	Debugger.printui("direction: "+str(direction))
 	$AnimationTree.set("parameters/blend_position", direction)
 
-	Debugger.printui("interaction_target: "+str(interaction_target))
 	if interaction_target:
 		if Input.is_action_just_pressed("interact"):
 			interaction_target.interact()
 		if !npc_detector.has_overlapping_areas():
 			interaction_target = null
+	
+	if Input.is_action_just_pressed("fighter"):
+		mask_class = CLASSES.FIGHTER
+		update_class()
+	elif Input.is_action_just_pressed("ranger"):
+		mask_class = CLASSES.RANGER
+		update_class()
+	elif Input.is_action_just_pressed("brawler"):
+		mask_class = CLASSES.BRAWLER
+		update_class()
+
+
 
 func _physics_process(delta: float) -> void:
 	velocity += knockback_speed * delta
@@ -72,6 +84,10 @@ func take_damage(source:Node2D, damage:=1) -> void:
 
 	$HurtEvent.play()
 
+	if health.value <= 0:
+		restart_menu.show()
+
+
 func update_class() -> void:
 	if weapon:
 		weapon.queue_free()
@@ -86,3 +102,11 @@ func update_class() -> void:
 
 func _on_npc_detector_area_entered(area: Area2D) -> void:
 	interaction_target = area.owner
+
+
+func _on_restart_pressed() -> void:
+	get_tree().current_scene.restart_game()
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()

@@ -1,7 +1,40 @@
 [gd_scene format=3 uid="uid://ofaqtcikejc6"]
 
+[ext_resource type="Script" uid="uid://cj7mca2omv1i4" path="res://Mask/bow.gd" id="1_adil8"]
+[ext_resource type="Texture2D" uid="uid://c8j48vj7mhxka" path="res://Mask/bow.png" id="1_wqagm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_47y82"]
+
 [node name="Bow" type="Area2D" unique_id=1700657593]
+z_index = 1
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_adil8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=861582040]
+position = Vector2(32, 0)
+shape = SubResource("CircleShape2D_47y82")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=302131016]
+position = Vector2(32, 0)
+texture = ExtResource("1_wqagm")
+
+[node name="DrawSFX" type="FmodEventEmitter2D" parent="." unique_id=2138132688]
+event_name = "event:/BowDraw"
+event_guid = "{9380363f-b896-451d-95ad-78d9da378bbf}"
+
+[node name="ShootSFX" type="FmodEventEmitter2D" parent="." unique_id=908070077]
+event_name = "event:/ArrowShoot"
+event_guid = "{bc2699d2-dfd7-41a9-9e2f-cd3eb0af6531}"
+
+[node name="HitSFX" type="FmodEventEmitter2D" parent="." unique_id=1305921022]
+event_name = "event:/EnemyHurtArrow"
+event_guid = "{ac7b58c1-d929-4d3a-922a-445cc425a584}"
+
+[node name="DeathSFX" type="FmodEventEmitter2D" parent="." unique_id=603444836]
+event_name = "event:/EnemyDeathArrow"
+event_guid = "{81e06b20-b0de-46a3-820f-e4114496bb6c}"
+
+[node name="BowDraw" type="TextureProgressBar" parent="." unique_id=419957468]
+offset_right = 40.0
+offset_bottom = 40.0

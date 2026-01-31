@@ -15,7 +15,7 @@ General/banks_path="res://FmodBanks/Desktop"
 [application]
 
 config/name="GGJ2026"
-run/main_scene="uid://btsg5v0xcdyj7"
+run/main_scene="uid://byu47meicuqkf"
 config/features=PackedStringArray("4.6", "Mobile")
 
 [autoload]
