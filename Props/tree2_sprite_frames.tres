@@ -1,0 +1,31 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bx4fkwye0mjmk"]
+
+[ext_resource type="Texture2D" uid="uid://cdetlp6clfw1k" path="res://Props/tree2_stump1.png" id="1_2y14a"]
+[ext_resource type="Texture2D" uid="uid://ccr20bwcr22rm" path="res://Props/tree2.png" id="1_y87cj"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2y14a")
+}],
+"loop": true,
+"name": &"cut",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y87cj")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y87cj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

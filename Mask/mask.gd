@@ -9,7 +9,7 @@ var knockback_speed := Vector2.ZERO
 @onready var npc_detector := $NPCDetector
 
 @onready var health: TextureProgressBar = $UI/Control/VBoxContainer/Health
-@onready var bow_draw: TextureProgressBar = $BowDraw
+@onready var weapon_charge: TextureProgressBar = $WeaponCharge
 
 var weapon : Weapon
 var sword_resource	:= preload("res://Mask/sword.tscn")
@@ -19,10 +19,13 @@ var bow_resource	:= preload("res://Mask/bow.tscn")
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var quest	: Label = $UI/Control/Quest
 @onready var restart_menu: CanvasLayer = $"Restart Menu"
+@onready var pickup_collider: Area2D = $PickupCollider
+@onready var grab_range: Area2D = $GrabRange
 
 @export var ranger_tex	: Texture
 @export var fighter_tex : Texture
 @export var brawler_tex : Texture
+
 
 var interaction_target
 
@@ -61,6 +64,13 @@ func _physics_process(delta: float) -> void:
 	velocity += knockback_speed * delta
 	move_and_slide()
 
+	for pickup in pickup_collider.get_overlapping_bodies():
+		var sfx_type = pickup.pickup(self)
+		match sfx_type:
+			"eat":
+				$EatSFX.play()
+
+
 func update_move_dir() -> void:
 	direction = Vector2(
 		float(Input.is_action_pressed("right")) - float(Input.is_action_pressed("left")),
@@ -97,9 +107,9 @@ func update_class() -> void:
 			weapon = sword_resource.instantiate()
 		CLASSES.RANGER:
 			weapon = bow_resource.instantiate()
-			weapon.mask = self
 		CLASSES.BRAWLER:
 			weapon = fists_resource.instantiate()
+	weapon.mask = self
 	add_child(weapon)
 
 func _on_npc_detector_area_entered(area: Area2D) -> void:

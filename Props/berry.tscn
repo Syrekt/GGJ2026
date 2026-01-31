@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b4yrqp68d781v"]
+
+[ext_resource type="Script" uid="uid://00u1n42oqbo8" path="res://Props/berry.gd" id="1_pw6x0"]
+[ext_resource type="Texture2D" uid="uid://dc1d0nmu62j31" path="res://Props/bush3.png" id="2_5o0mk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qf0ca"]
+radius = 5.0
+
+[node name="Berry" type="CharacterBody2D" unique_id=2136225987]
+collision_layer = 64
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_pw6x0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=270417725]
+shape = SubResource("CircleShape2D_qf0ca")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1164711]
+texture = ExtResource("2_5o0mk")

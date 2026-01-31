@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccr20bwcr22rm"
-path="res://.godot/imported/tree2.png-cda6f7953daa813db8493aa8a51c3654.ctex"
+uid="uid://hqy7jj5vdbgg"
+path="res://.godot/imported/spr_sword2.png-3a7206ec86dd41a3a9f7a5c891d85909.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/tree2.png"
-dest_files=["res://.godot/imported/tree2.png-cda6f7953daa813db8493aa8a51c3654.ctex"]
+source_file="res://Mask/spr_sword2.png"
+dest_files=["res://.godot/imported/spr_sword2.png-3a7206ec86dd41a3a9f7a5c891d85909.ctex"]
 
 [params]
 

@@ -1,5 +1,9 @@
 class_name Weapon extends Area2D
 
+var damage := 1
+
+@export var weapon_charge_speed := 0.5
+
 enum SLASH_TYPES { NONE, DOWNWARD, UPWARD }
 var slash_type = SLASH_TYPES.NONE
 

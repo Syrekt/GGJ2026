@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw2o8dctoe4be"
-path="res://.godot/imported/bush1.png-a6a9bd6e10ccf6b03811cf202aa5d05c.ctex"
+uid="uid://4nkhlyyerxbt"
+path="res://.godot/imported/spr_ranger_strip34.png-36fb80b14c3bc7e2f688d97b9c4219ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/bush1.png"
-dest_files=["res://.godot/imported/bush1.png-a6a9bd6e10ccf6b03811cf202aa5d05c.ctex"]
+source_file="res://Mask/spr_ranger_strip34.png"
+dest_files=["res://.godot/imported/spr_ranger_strip34.png-36fb80b14c3bc7e2f688d97b9c4219ca.ctex"]
 
 [params]
 

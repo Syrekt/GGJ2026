@@ -11,28 +11,37 @@ var hp_cur = hp_max
 @onready var hurt_timer: Timer = $HurtTimer
 
 
+@export var throw_force				:= 10.0 * 600.0
 @export var knockback_force_hurt	:= 50.0 * 600.0
 @export var knockback_force_death	:= 10.0 * 600.0
 var knockback_speed := Vector2.ZERO
+var throw_speed		:= Vector2.ZERO
 var rotation_speed := 0.0
 
 var dead := false
+var grabbed := false
+var thrown := false
 
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var starting_pos := global_position
+@onready var parent_prv = owner
 
 var tween_knockback : Tween
 
 func _process(delta: float) -> void:
+	Debugger.printui("thrown: "+str(thrown))
+	Debugger.printui("grabbed: "+str(grabbed))
 	Debugger.printui("knockback_speed: "+str(knockback_speed))
 	Debugger.printui("velocity: "+str(velocity))
 
 func _physics_process(delta: float) -> void:
+	if grabbed: return
+
 	if dead:
 		rotate(rotation_speed)
 		Debugger.printui("rotation: "+str(rotation))
 		velocity = Vector2.ZERO
-	elif !on_chase:
+	elif !on_chase || thrown:
 		velocity = Vector2.ZERO
 	else:
 		if on_chase:
@@ -45,7 +54,7 @@ func _physics_process(delta: float) -> void:
 				mask.take_damage(self)
 
 
-	velocity += knockback_speed * delta
+	velocity += (throw_speed + knockback_speed) * delta
 
 	move_and_slide()
 
@@ -89,8 +98,19 @@ func take_damage(source,damage:=1)-> void:
 			create_tween().tween_property(sprite.material, "shader_parameter/tint_color", Color(0, 0, 0, 1), 1.0)
 	else:
 		knockback_speed = source.global_position.direction_to(global_position) * knockback_force_hurt
-		tween_knockback.tween_property(self, "knockback_speed", Vector2(0, 0), 0.2)
+		tween_knockback.tween_property(self, "knockback_speed", Vector2.ZERO, 0.2)
 
 	if !on_chase && hp_cur > 0:
 		if !mask: mask = get_tree().current_scene.find_child("Mask", true, false)
 		if mask: start_chase()
+func get_grabbed(grabbed_by:Fists) -> void:
+	reparent(grabbed_by)
+	grabbed = true
+func throw(dir:float,speed:float) -> void:
+	reparent(parent_prv)
+	grabbed = false
+	throw_speed = Vector2.from_angle(dir) * throw_force
+	thrown = true
+	var tween = create_tween()
+	tween.tween_property(self, "throw_speed", Vector2.ZERO, 1.0)
+	tween.tween_callback(set.bind("thrown", false))

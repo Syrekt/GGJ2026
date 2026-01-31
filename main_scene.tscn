@@ -2,15 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://doxjbdm63fowk" path="res://Mask/mask.tscn" id="1_0f027"]
 [ext_resource type="Script" uid="uid://o2uf8gjqvxso" path="res://main_scene.gd" id="1_hq1ik"]
-[ext_resource type="PackedScene" uid="uid://bddb85qrbwldg" path="res://Props/tree.tscn" id="2_2c62f"]
+[ext_resource type="PackedScene" uid="uid://bddb85qrbwldg" path="res://Props/tree1.tscn" id="2_2c62f"]
 [ext_resource type="TileSet" uid="uid://caeguxvxygtws" path="res://Map/village.tres" id="2_hq1ik"]
 [ext_resource type="PackedScene" uid="uid://5jq3s1875npx" path="res://NPCs/npc.tscn" id="3_gyfs4"]
 [ext_resource type="PackedScene" uid="uid://cq0ofb2uwi8dp" path="res://Enemies/enemy.tscn" id="6_66tet"]
 [ext_resource type="Texture2D" uid="uid://isxvn0r6vr0h" path="res://Map/House1.png" id="7_nfk4m"]
 [ext_resource type="Texture2D" uid="uid://c72eo37hfbdcy" path="res://Map/House2.png" id="8_66tet"]
+[ext_resource type="Texture2D" uid="uid://dr4mc7oydkdw6" path="res://Map/rock1.png" id="9_7ycvg"]
+[ext_resource type="PackedScene" uid="uid://dfe5ikewvfkdh" path="res://Props/bush.tscn" id="9_qwutr"]
+[ext_resource type="PackedScene" uid="uid://dw0raiovk74mo" path="res://Props/tree2.tscn" id="10_wr18j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66tet"]
-size = Vector2(124, 86)
+size = Vector2(16, 10)
 
 [node name="MainScene" type="Node2D" unique_id=1830486730 node_paths=PackedStringArray("mask")]
 script = ExtResource("1_hq1ik")
@@ -61,3 +64,13 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/House2/Area2D" unique_id=890162584]
 position = Vector2(1, 15)
 shape = SubResource("RectangleShape2D_66tet")
+
+[node name="Bush" parent="Node" unique_id=866987035 instance=ExtResource("9_qwutr")]
+position = Vector2(246, -17)
+
+[node name="Tree1" parent="Node" unique_id=1987761876 instance=ExtResource("10_wr18j")]
+position = Vector2(345, -8)
+
+[node name="Rock1" type="Sprite2D" parent="." unique_id=78960422]
+position = Vector2(737, -32)
+texture = ExtResource("9_7ycvg")

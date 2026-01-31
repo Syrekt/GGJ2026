@@ -4,3 +4,6 @@
 
 [node name="Game" type="Node" unique_id=1253134551]
 script = ExtResource("1_80nbo")
+
+[node name="BGM" type="FmodEventEmitter2D" parent="." unique_id=199336445]
+autoplay = true

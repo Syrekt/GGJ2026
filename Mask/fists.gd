@@ -7,11 +7,13 @@ var tween_position : Tween
 var attack_buffered := false
 var can_buffer := false
 
+var grabbed_object : Node2D
+
 func _process(delta: float) -> void:
 	Debugger.printui("position: "+str(position))
 	Debugger.printui("attacking: "+str(attacking))
 
-	if can_buffer && Input.is_action_just_pressed("attack"):
+	if can_buffer && Input.is_action_just_released("attack"):
 		attack_buffered = true
 
 func _physics_process(delta: float) -> void:
@@ -31,7 +33,29 @@ func _physics_process(delta: float) -> void:
 
 
 func input_handle() -> void:
-	if (attack_buffered || Input.is_action_just_pressed("attack")) && !attacking:
+	if Input.is_action_pressed("attack"):
+		mask.weapon_charge.value += weapon_charge_speed
+	if Input.is_action_just_released("attack"):
+		if grabbed_object:
+			grabbed_object.throw(rotation, mask.weapon_charge.value)
+			mask.weapon_charge.value = 0
+			grabbed_object = null
+			return
+
+		if mask.weapon_charge.value == mask.weapon_charge.max_value:
+			var grabbed := false
+
+			var grab_range = mask.grab_range
+			for grab_object in grab_range.get_overlapping_bodies():
+				grab(grab_object)
+				grabbed = true
+				break;
+
+			mask.weapon_charge.value = 0
+			if grabbed: return
+		mask.weapon_charge.value = 0
+
+	if (attack_buffered || Input.is_action_just_released("attack")) && !attacking:
 		attack_buffered = false
 		$WooshSFX.play()
 		attacking = true
@@ -50,3 +74,8 @@ func input_handle() -> void:
 		tween_position.set_parallel(false)
 		tween_position.tween_callback(set.bind("attacking", false))
 		tween_position.tween_callback(set.bind("can_buffer", false))
+
+
+func grab(node:Node2D) -> void:
+	grabbed_object = node
+	node.get_grabbed(self)

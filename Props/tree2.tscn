@@ -1,25 +1,24 @@
-[gd_scene format=3 uid="uid://bddb85qrbwldg"]
+[gd_scene format=3 uid="uid://dw0raiovk74mo"]
 
-[ext_resource type="Script" uid="uid://dc4ulofxf2wu0" path="res://Props/tree.gd" id="1_lgthx"]
-[ext_resource type="SpriteFrames" uid="uid://bst7hounh7k10" path="res://Map/tree1_sprite_frames.tres" id="2_lgthx"]
+[ext_resource type="Script" uid="uid://dc4ulofxf2wu0" path="res://Props/tree.gd" id="1_8uhgi"]
+[ext_resource type="SpriteFrames" uid="uid://bx4fkwye0mjmk" path="res://Props/tree2_sprite_frames.tres" id="2_0td5m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mq1c"]
-size = Vector2(27, 26)
+size = Vector2(11, 20)
 
-[node name="Tree" type="Area2D" unique_id=47681241]
+[node name="Tree1" type="Area2D" unique_id=47681241]
 collision_layer = 17
 collision_mask = 0
-script = ExtResource("1_lgthx")
+script = ExtResource("1_8uhgi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1864500232]
-position = Vector2(0.5, -0.5)
+position = Vector2(-2.5, -17)
 shape = SubResource("RectangleShape2D_5mq1c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=709733874]
 position = Vector2(-0.5, -44.5)
-sprite_frames = ExtResource("2_lgthx")
-animation = &"idle"
-autoplay = "idle"
+sprite_frames = ExtResource("2_0td5m")
+animation = &"hurt"
 
 [node name="ChopSFX" type="FmodEventEmitter2D" parent="." unique_id=1687343994]
 event_name = "event:/WoodChop"
