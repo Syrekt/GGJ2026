@@ -1,0 +1,35 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bst7hounh7k10"]
+
+[ext_resource type="Texture2D" uid="uid://6jrehfch3wh8" path="res://Props/Tree.png" id="1_o4hem"]
+[ext_resource type="Texture2D" uid="uid://c0mwu7rs55rf1" path="res://Map/tree1.png" id="2_qun63"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgthx"]
+atlas = ExtResource("1_o4hem")
+region = Rect2(0, 384, 192, 192)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgthx")
+}],
+"loop": false,
+"name": &"cut",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qun63")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qun63")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]

@@ -3,13 +3,15 @@
 [ext_resource type="Script" uid="uid://goanewj4y6k8" path="res://Mask/mask.gd" id="1_f250e"]
 [ext_resource type="Shader" uid="uid://bl8g44obhi3lq" path="res://outline.gdshader" id="2_acme0"]
 [ext_resource type="Texture2D" uid="uid://de7qrbl8boo0q" path="res://Mask/Hero 01.png" id="2_bp1os"]
+[ext_resource type="Texture2D" uid="uid://lvmyy3k8qa3m" path="res://Mask/ranger.png" id="2_qtqal"]
 [ext_resource type="Script" uid="uid://b7dk8vvgll08y" path="res://fsm.gd" id="3_d7d1v"]
+[ext_resource type="Texture2D" uid="uid://deesqqmarijo4" path="res://Mask/fighter.png" id="3_kpqyf"]
 [ext_resource type="Script" uid="uid://dxty2x4rcsx4n" path="res://Mask/States/idle.gd" id="4_jy6tj"]
+[ext_resource type="Texture2D" uid="uid://cmty0ji1oqda6" path="res://Mask/brawler.png" id="4_k6qtf"]
 [ext_resource type="Script" uid="uid://bfxfrdrim0si2" path="res://Mask/States/walk.gd" id="5_wnnhb"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_b3eq5"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_kvpt5"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_3ssga"]
-[ext_resource type="Script" uid="uid://78kh4nyxijkm" path="res://Mask/sword.gd" id="9_kvpt5"]
 [ext_resource type="Texture2D" uid="uid://y5hobqld7js2" path="res://UI/health_under.png" id="10_omjc0"]
 [ext_resource type="Texture2D" uid="uid://mt58k6oijr0t" path="res://UI/health_progress.png" id="11_4rbsa"]
 [ext_resource type="Script" uid="uid://bdevra7tti3er" path="res://Mask/health.gd" id="12_4rbsa"]
@@ -319,8 +321,6 @@ blend_mode = 1
 [sub_resource type="Resource" id="Resource_omjc0"]
 script = ExtResource("8_3ssga")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b3eq5"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_kvpt5"]
 radius = 25.179358
 
@@ -330,6 +330,9 @@ motion_mode = 1
 slide_on_ceiling = false
 script = ExtResource("1_f250e")
 direction = Vector2(-1, 1)
+ranger_tex = ExtResource("2_qtqal")
+fighter_tex = ExtResource("3_kpqyf")
+brawler_tex = ExtResource("4_k6qtf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2087326779]
 visible = false
@@ -382,26 +385,6 @@ tween_resource = SubResource("Resource_omjc0")
 tween_on_load = false
 follow_damping = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
-
-[node name="Sword" type="Area2D" parent="." unique_id=887568138]
-rotation = -1.5707964
-collision_layer = 0
-collision_mask = 20
-script = ExtResource("9_kvpt5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword" unique_id=1608654528]
-position = Vector2(0, 30)
-shape = SubResource("CapsuleShape2D_b3eq5")
-
-[node name="ColorRect" type="ColorRect" parent="Sword" unique_id=653110182]
-offset_left = -3.0
-offset_top = 18.0
-offset_right = 3.0
-offset_bottom = 40.0
-
-[node name="WhooshSFX" type="FmodEventEmitter2D" parent="Sword" unique_id=1386970414]
-event_name = "event:/SwordWoosh"
-event_guid = "{c807c40a-1112-411d-a546-804ed8c10b7d}"
 
 [node name="NPCDetector" type="Area2D" parent="." unique_id=1625335902]
 visible = false

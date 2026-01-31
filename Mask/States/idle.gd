@@ -8,4 +8,4 @@ func physics_update(delta: float) -> void:
 
 func  update(_delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
-		owner.sword.attack()
+		owner.weapon.attack()

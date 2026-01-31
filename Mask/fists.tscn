@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dl0rlm8qdg64"]
+
+[ext_resource type="Script" uid="uid://djwko62h6ilgl" path="res://mask/fists.gd" id="1_lr525"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_02x86"]
+
+[node name="Fists" type="Area2D" unique_id=633064068]
+script = ExtResource("1_lr525")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=440136265]
+shape = SubResource("CircleShape2D_02x86")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2043280931]

@@ -24,12 +24,12 @@ func take_damage(source,damage:=1) -> void:
 
 	var ttime = 0.1
 	var tween_scale = create_tween().bind_node(self)
-	tween_scale.tween_property(sprite, "scale", Vector2(1.2, 1.2), ttime)
+	tween_scale.tween_property(sprite, "scale", Vector2(0.05, 0.05), ttime).as_relative()
 	tween_scale.tween_property(sprite, "scale", Vector2(1, 1), ttime)
 
 	ttime = 0.2
 	var tween_rot = create_tween().bind_node(self).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
-	tween_rot.tween_property(sprite, "rotation_degrees", randi_range(-45, 45), ttime)
+	tween_rot.tween_property(sprite, "rotation_degrees", randi_range(-2, 2), ttime)
 	tween_rot.tween_property(sprite, "rotation_degrees", 0, ttime)
 
 	$ChopSFX.play()
