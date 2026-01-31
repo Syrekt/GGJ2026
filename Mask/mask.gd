@@ -35,6 +35,7 @@ var dead := false
 
 enum CLASSES { FIGHTER, RANGER, BRAWLER}
 @export var mask_class : CLASSES
+var class_string : String
 
 
 func _ready() -> void:
@@ -75,10 +76,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	for pickup in pickup_collider.get_overlapping_bodies():
-		var sfx_type = pickup.pickup(self)
-		match sfx_type:
-			"eat":
-				$EatSFX.play()
+		if pickup.pickable:
+			var sfx_type = pickup.pickup(self)
+			match sfx_type:
+				"eat":
+					$EatSFX.play()
 
 
 func move(delta:float,speed_mod:=1.0) -> void:
@@ -90,6 +92,9 @@ func move(delta:float,speed_mod:=1.0) -> void:
 	if velocity.x != 0: direction.x = sign(velocity.x)
 	if velocity.y != 0: direction.y = sign(velocity.y)
 func take_damage(source:Node2D, damage:=1) -> void:
+	if state_node.state.name == "dodge": return
+
+
 	health.value -= damage
 	var tween = create_tween().bind_node(self)
 	tween.tween_property(sprite.material, "shader_parameter/tint_color", Color(1, 0, 0, 1), 0.2)
@@ -120,12 +125,17 @@ func update_class() -> void:
 	match mask_class:
 		CLASSES.FIGHTER:
 			weapon = sword_resource.instantiate()
+			class_string = "fighter"
 		CLASSES.RANGER:
 			weapon = bow_resource.instantiate()
+			class_string = "ranger"
 		CLASSES.BRAWLER:
 			weapon = fists_resource.instantiate()
+			class_string = "brawler"
 	weapon.mask = self
 	add_child(weapon)
+
+	state_node.state.enter(state_node.state.name)
 
 func _on_npc_detector_area_entered(area: Area2D) -> void:
 	interaction_target = area.owner

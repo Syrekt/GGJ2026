@@ -4,9 +4,9 @@ func enter(previous_state_path: String, data := {}) -> void:
 	owner.velocity.x = 0.0
 
 	if owner.direction.x == 1:
-		owner.anim_player.play("fighter_idle_right")
+		owner.anim_player.play(owner.class_string + "_idle_right")
 	else:
-		owner.anim_player.play("fighter_idle_left")
+		owner.anim_player.play(owner.class_string + "_idle_left")
 
 func physics_update(delta: float) -> void:
 	owner.move(delta)
