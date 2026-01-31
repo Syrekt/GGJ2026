@@ -1,13 +1,80 @@
 [gd_scene format=3 uid="uid://cq0ofb2uwi8dp"]
 
 [ext_resource type="Script" uid="uid://b6svhycrt6ga5" path="res://Enemies/enemy.gd" id="1_3ih25"]
+[ext_resource type="Shader" uid="uid://bl8g44obhi3lq" path="res://outline.gdshader" id="2_47qgu"]
+[ext_resource type="Texture2D" uid="uid://s8eq3g5jpdf1" path="res://Enemies/Villain 01.png" id="2_bxkaj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_chnrf"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_572h1"]
+shader = ExtResource("2_47qgu")
+shader_parameter/outline_color = Color(0, 0, 0, 0)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+shader_parameter/tint_color = Color(1, 1, 1, 0)
+shader_parameter/alpha = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bxkaj"]
+radius = 72.780495
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_47qgu"]
+radius = 148.22281
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_572h1"]
+
 [node name="Enemy" type="CharacterBody2D" unique_id=855693433]
+collision_layer = 4
 script = ExtResource("1_3ih25")
+knockback_force_death = 10000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=47989863]
 shape = SubResource("CircleShape2D_chnrf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=258190751]
+material = SubResource("ShaderMaterial_572h1")
+texture = ExtResource("2_bxkaj")
+hframes = 4
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1644324632]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=876470762]
+shape = SubResource("CircleShape2D_bxkaj")
+
+[node name="ChaseBoundaries" type="Area2D" parent="." unique_id=1617974985]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseBoundaries" unique_id=1671729139]
+shape = SubResource("CircleShape2D_47qgu")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=844223650]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=619310781]
+shape = SubResource("CircleShape2D_572h1")
+
+[node name="HurtTimer" type="Timer" parent="." unique_id=837807429]
+one_shot = true
+autostart = true
+
+[node name="HurtSFX" type="FmodEventEmitter2D" parent="." unique_id=338551618]
+event_name = "event:/EnemyHurt"
+event_guid = "{6c21e698-f721-4f6c-ab33-f8331ae10730}"
+
+[node name="DeathSFX" type="FmodEventEmitter2D" parent="." unique_id=808622493]
+event_name = "event:/EnemyDeath"
+event_guid = "{1ef3cc2f-12ab-4402-be9b-25430d53a201}"
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="ChaseBoundaries" to="." method="_on_chase_boundaries_body_exited"]

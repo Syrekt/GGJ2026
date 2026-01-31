@@ -1,24 +1,24 @@
 class_name NPC extends Node2D
 
-
-@export var BALLOON = preload("res://balloon.tscn")
-var dialogue_resource : DialogueResource
-
-
+@export var dialogue_resource : DialogueResource
+@export var dialogue_start := "start"
+var BALLOON = preload("res://balloon.tscn")
 var balloon = null
 
-@export_multiline var text := ""
+@export var has_dialogue := false
 
 func _ready() -> void:
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended);
-	dialogue_resource = DialogueManager.create_resource_from_text("~ title\n" + text)
 
-func _on_dialogue_ended(resource: DialogueResource) -> void:
+func _on_dialogue_ended(_resource: DialogueResource) -> void:
 	pass
 
 
 func interact() -> void:
 	print("interacted")
-	balloon = BALLOON.instantiate()
-	get_tree().current_scene.add_child(balloon)
-	balloon.start(dialogue_resource, "title")
+	if has_dialogue:
+		balloon = BALLOON.instantiate()
+		get_tree().current_scene.add_child(balloon)
+		balloon.start(dialogue_resource, dialogue_start)
+	else:
+		$OverheadBalloon.start_typing()

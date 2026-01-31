@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c54ve636mhr4r"
+path="res://.godot/imported/first_npc.dialogue-db60049396ae35c237c937184324378d.tres"
+
+[deps]
+
+source_file="res://Dialogues/first_npc.dialogue"
+dest_files=["res://.godot/imported/first_npc.dialogue-db60049396ae35c237c937184324378d.tres"]
+
+[params]
+
+defaults=true

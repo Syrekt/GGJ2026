@@ -8,10 +8,12 @@ var hp_cur = hp_max
 var drop := preload("res://Drops/log.tscn")
 
 
-func take_damage(damage:=1) -> void:
+func take_damage(source,damage:=1) -> void:
+	if sprite.animation == "cut": return
+
 	print("hurt")
 	sprite.play("hurt")
-	hp_cur -= damage
+	#hp_cur -= damage
 
 	var _drop := drop.instantiate()
 	_drop.global_position = global_position
@@ -20,13 +22,17 @@ func take_damage(damage:=1) -> void:
 	if hp_cur <= 0:
 		sprite.play("cut")
 
+	var ttime = 0.1
+	var tween_scale = create_tween().bind_node(self)
+	tween_scale.tween_property(sprite, "scale", Vector2(1.2, 1.2), ttime)
+	tween_scale.tween_property(sprite, "scale", Vector2(1, 1), ttime)
 
+	ttime = 0.2
+	var tween_rot = create_tween().bind_node(self).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
+	tween_rot.tween_property(sprite, "rotation_degrees", randi_range(-45, 45), ttime)
+	tween_rot.tween_property(sprite, "rotation_degrees", 0, ttime)
 
-func _on_body_entered(body: Node2D) -> void:
-	if sprite.animation == "cut": return
-
-	if body is PlayerWeapon:
-		take_damage()
+	$ChopSFX.play()
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

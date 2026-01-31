@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://doxjbdm63fowk"]
 
 [ext_resource type="Script" uid="uid://goanewj4y6k8" path="res://Mask/mask.gd" id="1_f250e"]
+[ext_resource type="Shader" uid="uid://bl8g44obhi3lq" path="res://outline.gdshader" id="2_acme0"]
 [ext_resource type="Texture2D" uid="uid://de7qrbl8boo0q" path="res://Mask/Hero 01.png" id="2_bp1os"]
 [ext_resource type="Script" uid="uid://b7dk8vvgll08y" path="res://fsm.gd" id="3_d7d1v"]
 [ext_resource type="Script" uid="uid://dxty2x4rcsx4n" path="res://Mask/States/idle.gd" id="4_jy6tj"]
@@ -12,8 +13,20 @@
 [ext_resource type="Texture2D" uid="uid://y5hobqld7js2" path="res://UI/health_under.png" id="10_omjc0"]
 [ext_resource type="Texture2D" uid="uid://mt58k6oijr0t" path="res://UI/health_progress.png" id="11_4rbsa"]
 [ext_resource type="Script" uid="uid://bdevra7tti3er" path="res://Mask/health.gd" id="12_4rbsa"]
+[ext_resource type="FontFile" uid="uid://b2v76ut8nn70a" path="res://Fonts/Ohrenstead.ttf" id="14_dpjmy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cq5j3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dpjmy"]
+shader = ExtResource("2_acme0")
+shader_parameter/outline_color = Color(0, 0, 0, 0)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+shader_parameter/tint_color = Color(1, 1, 1, 0)
+shader_parameter/alpha = 1.0
 
 [sub_resource type="Animation" id="Animation_b1y6m"]
 length = 0.4
@@ -21,58 +34,46 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Sprite2D:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_bp1os")]
+"values": [4]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/path = NodePath("Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:region_enabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:region_enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D:region_rect")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:region_rect")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -86,58 +87,46 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Sprite2D:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_bp1os")]
+"values": [4]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/path = NodePath("Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:region_enabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:region_enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D:region_rect")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:region_rect")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -151,58 +140,46 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Sprite2D:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_bp1os")]
+"values": [4]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/path = NodePath("Sprite2D:region_enabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:region_enabled")
+tracks/2/path = NodePath("Sprite2D:region_rect")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Rect2(0, 16, 64, 16)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:region_rect")
+tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(0, 16, 64, 16)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
@@ -216,46 +193,34 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_bp1os")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 1, 2, 3]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:region_enabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:region_enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:region_rect")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:region_rect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -269,46 +234,34 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_bp1os")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:region_enabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:region_enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:region_rect")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:region_rect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -372,16 +325,18 @@ script = ExtResource("8_3ssga")
 radius = 25.179358
 
 [node name="Mask" type="CharacterBody2D" unique_id=2066154547]
-collision_mask = 2
+collision_layer = 2
 motion_mode = 1
 slide_on_ceiling = false
 script = ExtResource("1_f250e")
 direction = Vector2(-1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2087326779]
+visible = false
 shape = SubResource("CapsuleShape2D_cq5j3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1141425781]
+material = SubResource("ShaderMaterial_dpjmy")
 texture = ExtResource("2_bp1os")
 hframes = 4
 region_enabled = true
@@ -428,10 +383,10 @@ tween_on_load = false
 follow_damping = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="Sword" type="CharacterBody2D" parent="." unique_id=1209940852]
+[node name="Sword" type="Area2D" parent="." unique_id=887568138]
 rotation = -1.5707964
-collision_layer = 8
-collision_mask = 0
+collision_layer = 0
+collision_mask = 20
 script = ExtResource("9_kvpt5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword" unique_id=1608654528]
@@ -444,18 +399,21 @@ offset_top = 18.0
 offset_right = 3.0
 offset_bottom = 40.0
 
+[node name="WhooshSFX" type="FmodEventEmitter2D" parent="Sword" unique_id=1386970414]
+event_name = "event:/SwordWoosh"
+event_guid = "{c807c40a-1112-411d-a546-804ed8c10b7d}"
+
 [node name="NPCDetector" type="Area2D" parent="." unique_id=1625335902]
+visible = false
 collision_layer = 0
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCDetector" unique_id=2070633986]
 shape = SubResource("CircleShape2D_kvpt5")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=318945928]
-scale = Vector2(6.145, 6.145)
-transform = Transform2D(6.145, 0, 0, 6.145, 0, 0)
+[node name="UI" type="CanvasLayer" parent="." unique_id=318945928]
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=62208755]
+[node name="Control" type="Control" parent="UI" unique_id=62208755]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -463,23 +421,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Health" type="TextureProgressBar" parent="CanvasLayer/Control" unique_id=435413170]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 94.0
-offset_right = 60.0
-offset_bottom = 101.0
+[node name="Quest" type="Label" parent="UI/Control" unique_id=2138668291]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_right = -64.0
+offset_bottom = 23.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("14_dpjmy")
+text = "Bring 3 woods"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control" unique_id=1923100426]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -102.0
+offset_right = 66.0
+offset_bottom = -59.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Control/VBoxContainer" unique_id=1583460882]
+layout_mode = 2
+theme_override_constants/margin_left = 9
+
+[node name="ColorRect" type="ColorRect" parent="UI/Control/VBoxContainer/MarginContainer" unique_id=555274564]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Health" type="TextureProgressBar" parent="UI/Control/VBoxContainer" unique_id=435413170]
+layout_mode = 2
 value = 100.0
 texture_under = ExtResource("10_omjc0")
 texture_progress = ExtResource("11_4rbsa")
 script = ExtResource("12_4rbsa")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=555274564]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 75.0
-offset_right = 25.0
-offset_bottom = 90.0
+[node name="HurtEvent" type="FmodEventEmitter2D" parent="." unique_id=987865553]
+event_name = "event:/PlayerHurt"
+event_guid = "{ae452535-a892-48b3-9c44-fa718771c01e}"
 
 [connection signal="area_entered" from="NPCDetector" to="." method="_on_npc_detector_area_entered"]
-[connection signal="value_changed" from="CanvasLayer/Control/Health" to="CanvasLayer/Control/Health" method="_on_value_changed"]
+[connection signal="value_changed" from="UI/Control/VBoxContainer/Health" to="UI/Control/VBoxContainer/Health" method="_on_value_changed"]

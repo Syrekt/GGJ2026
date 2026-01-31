@@ -1,15 +1,43 @@
 class_name Mask extends CharacterBody2D
 
 @export var direction	:= Vector2(1, 0)
-@export var move_speed	:= 5.0 * 60
+@export var move_speed	:= 10.0 * 600.0
+
+@export var knockback_force := 50.0 * 600.0
+var knockback_speed := Vector2.ZERO
 
 @onready var npc_detector := $NPCDetector
 
-@onready var sword : CharacterBody2D = $Sword
-@onready var health: TextureProgressBar = $CanvasLayer/Control/Health
+@onready var sword : Area2D = $Sword
+@onready var health: TextureProgressBar = $UI/Control/VBoxContainer/Health
+
+@onready var sprite : Sprite2D = $Sprite2D
+@onready var quest	: Label = $UI/Control/Quest
 
 var interaction_target
 
+func take_damage(source:Node2D, damage:=1) -> void:
+	health.value -= damage
+	var tween = create_tween().bind_node(self)
+	tween.tween_property(sprite.material, "shader_parameter/tint_color", Color(1, 0, 0, 1), 0.2)
+	tween.tween_property(sprite.material, "shader_parameter/tint_color", Color(1, 1, 1, 0), 0.2)
+
+	knockback_speed = source.global_position.direction_to(global_position) * knockback_force
+	create_tween().bind_node(self).tween_property(self, "knockback_speed", Vector2(0, 0), 0.2)
+
+	var tween_scale = create_tween().bind_node(self)
+	tween_scale.tween_property(sprite, "scale", Vector2(1.2, 1.2), 0.1)
+	tween_scale.tween_property(sprite, "scale", Vector2(1, 1), 0.1)
+
+	var tween_rot = create_tween().bind_node(self).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
+	tween_rot.tween_property(sprite, "rotation_degrees", randi_range(-45, 45), 0.2)
+	tween_rot.tween_property(sprite, "rotation_degrees", 0, 0.1)
+
+	$HurtEvent.play()
+
+
+func _ready() -> void:
+	quest.text = "Bring 3 woods"
 
 func _process(delta: float) -> void:
 	Debugger.printui("direction: "+str(direction))
@@ -23,6 +51,7 @@ func _process(delta: float) -> void:
 			interaction_target = null
 
 func _physics_process(delta: float) -> void:
+	velocity += knockback_speed * delta
 	move_and_slide()
 
 func update_move_dir() -> void:

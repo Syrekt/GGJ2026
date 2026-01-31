@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bddb85qrbwldg"]
 
 [ext_resource type="Texture2D" uid="uid://6jrehfch3wh8" path="res://Props/Tree.png" id="1_0gyv6"]
-[ext_resource type="Script" uid="uid://b50e4c407faim" path="res://Props/tree.gd" id="1_lgthx"]
+[ext_resource type="Script" uid="uid://dc4ulofxf2wu0" path="res://Props/tree.gd" id="1_lgthx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mq1c"]
 size = Vector2(27, 26)
@@ -87,7 +87,7 @@ animations = [{
 
 [node name="Tree" type="Area2D" unique_id=47681241]
 collision_layer = 17
-collision_mask = 8
+collision_mask = 0
 script = ExtResource("1_lgthx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1864500232]
@@ -100,6 +100,10 @@ animation = &"hurt"
 autoplay = "idle"
 frame = 1
 frame_progress = 1.0
+
+[node name="ChopSFX" type="FmodEventEmitter2D" parent="." unique_id=1687343994]
+event_name = "event:/WoodChop"
+event_guid = "{266dc57d-a394-489b-8bde-289f73965859}"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
