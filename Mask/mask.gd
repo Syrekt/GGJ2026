@@ -87,7 +87,7 @@ func move(delta:float,speed_mod:=1.0) -> void:
 	velocity = Vector2(
 		float(Input.is_action_pressed("right")) - float(Input.is_action_pressed("left")),
 		float(Input.is_action_pressed("down")) - float(Input.is_action_pressed("up"))
-	) * move_speed * speed_mod * delta
+	).normalized() * move_speed * speed_mod * delta
 
 	if velocity.x != 0: direction.x = sign(velocity.x)
 	if velocity.y != 0: direction.y = sign(velocity.y)

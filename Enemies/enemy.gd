@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 	else:
 		if on_chase:
-			var direction : Vector2 = global_position.direction_to(mask.global_position)
+			var direction : Vector2 = global_position.direction_to(mask.global_position).normalized()
 			velocity = direction * move_speed * delta
 
 		if $Hurtbox.has_overlapping_bodies():
