@@ -12,6 +12,7 @@ var target_rotation	: float = rotation
 @onready var death_sfx := $DeathSFX
 
 var hit_list : Array
+var mask : Mask
 
 @export var lock_direction_while_attacking := true
 

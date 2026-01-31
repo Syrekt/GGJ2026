@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://bl8g44obhi3lq" path="res://outline.gdshader" id="2_acme0"]
 [ext_resource type="Texture2D" uid="uid://de7qrbl8boo0q" path="res://Mask/Hero 01.png" id="2_bp1os"]
 [ext_resource type="Script" uid="uid://b7dk8vvgll08y" path="res://fsm.gd" id="3_d7d1v"]
+[ext_resource type="Texture2D" uid="uid://d01n11ma8w55q" path="res://UI/bow_draw_progress.png" id="3_glqgf"]
 [ext_resource type="Script" uid="uid://dxty2x4rcsx4n" path="res://Mask/States/idle.gd" id="4_jy6tj"]
 [ext_resource type="Script" uid="uid://bfxfrdrim0si2" path="res://Mask/States/walk.gd" id="5_wnnhb"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_b3eq5"]
@@ -332,6 +333,21 @@ slide_on_ceiling = false
 script = ExtResource("1_f250e")
 direction = Vector2(-1, 1)
 mask_class = 2
+
+[node name="BowDraw" type="TextureProgressBar" parent="." unique_id=26232644]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = 18.0
+offset_right = 22.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+step = 0.1
+texture_progress = ExtResource("3_glqgf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2087326779]
 visible = false

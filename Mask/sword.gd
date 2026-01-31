@@ -1,7 +1,5 @@
 class_name PlayerWeapon extends Weapon
 
-@onready var mask: Mask = $".."
-
 
 
 func _physics_process(delta: float) -> void:

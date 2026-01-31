@@ -5,8 +5,16 @@ class_name Arrow extends CharacterBody2D
 @onready var hit_sfx: FmodEventEmitter2D = $HitSFX
 @onready var death_sfx: FmodEventEmitter2D = $DeathSFX
 
+var disabled := false ## Object is disabled, free after SFX
+
+
+func _ready() -> void:
+	hit_sfx.stopped.connect(queue_free)
+	death_sfx.stopped.connect(queue_free)
 
 func _physics_process(delta: float) -> void:
+	if disabled: return
+
 	move_and_slide()
 
 	for body in hitbox.get_overlapping_bodies():
@@ -14,12 +22,16 @@ func _physics_process(delta: float) -> void:
 		if body is Enemy:
 			body.take_damage(self)
 		print("self: "+str(self))
-		queue_free()
+		hide()
+		disabled = true
+		hitbox.queue_free()
 		break;
 
 	for area in hitbox.get_overlapping_areas():
 		print("area: "+str(area))
-		queue_free()
+		hide()
+		disabled = true
+		hitbox.queue_free()
 		break;
 
 

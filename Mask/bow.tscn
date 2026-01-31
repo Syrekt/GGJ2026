@@ -10,13 +10,14 @@ z_index = 1
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_adil8")
+bow_draw_speed = 1.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=861582040]
-position = Vector2(32, 0)
+position = Vector2(18, 0.5)
 shape = SubResource("CircleShape2D_47y82")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=302131016]
-position = Vector2(32, 0)
+position = Vector2(18, 0.5)
 texture = ExtResource("1_wqagm")
 
 [node name="DrawSFX" type="FmodEventEmitter2D" parent="." unique_id=2138132688]
@@ -34,7 +35,3 @@ event_guid = "{ac7b58c1-d929-4d3a-922a-445cc425a584}"
 [node name="DeathSFX" type="FmodEventEmitter2D" parent="." unique_id=603444836]
 event_name = "event:/EnemyDeathArrow"
 event_guid = "{81e06b20-b0de-46a3-820f-e4114496bb6c}"
-
-[node name="BowDraw" type="TextureProgressBar" parent="." unique_id=419957468]
-offset_right = 40.0
-offset_bottom = 40.0

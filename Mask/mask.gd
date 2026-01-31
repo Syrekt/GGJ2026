@@ -9,6 +9,7 @@ var knockback_speed := Vector2.ZERO
 @onready var npc_detector := $NPCDetector
 
 @onready var health: TextureProgressBar = $UI/Control/VBoxContainer/Health
+@onready var bow_draw: TextureProgressBar = $BowDraw
 
 var weapon : Weapon
 var sword_resource	:= preload("res://Mask/sword.tscn")
@@ -96,6 +97,7 @@ func update_class() -> void:
 			weapon = sword_resource.instantiate()
 		CLASSES.RANGER:
 			weapon = bow_resource.instantiate()
+			weapon.mask = self
 		CLASSES.BRAWLER:
 			weapon = fists_resource.instantiate()
 	add_child(weapon)
