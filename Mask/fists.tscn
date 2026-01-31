@@ -11,6 +11,7 @@ collision_layer = 0
 collision_mask = 20
 script = ExtResource("1_lr525")
 attack_force = 35.0
+charge_speed = 1.0
 rotation_offset = -1.571
 lock_direction_while_attacking = false
 

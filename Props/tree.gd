@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 @export var hp_max = 3
 var hp_cur = hp_max

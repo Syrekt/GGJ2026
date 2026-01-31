@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 
 func input_handle() -> void:
 	if Input.is_action_pressed("attack"):
-		mask.weapon_charge.value += weapon_charge_speed
+		mask.weapon_charge.value += charge_speed
 		if mask.weapon_charge.value == mask.weapon_charge.max_value:
 			set_on_fire()
 

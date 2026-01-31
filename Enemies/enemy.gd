@@ -28,17 +28,12 @@ var thrown := false
 
 var tween_knockback : Tween
 
-func _process(delta: float) -> void:
-	Debugger.printui("thrown: "+str(thrown))
-	Debugger.printui("grabbed: "+str(grabbed))
-	Debugger.printui("knockback_speed: "+str(knockback_speed))
-	Debugger.printui("velocity: "+str(velocity))
-
 func _physics_process(delta: float) -> void:
 	if grabbed: return
 
-	if dead:
+	if dead || thrown:
 		rotate(rotation_speed)
+	if dead:
 		Debugger.printui("rotation: "+str(rotation))
 		velocity = Vector2.ZERO
 	elif !on_chase || thrown:
@@ -109,8 +104,12 @@ func get_grabbed(grabbed_by:Fists) -> void:
 func throw(dir:float,speed:float) -> void:
 	reparent(parent_prv)
 	grabbed = false
-	throw_speed = Vector2.from_angle(dir) * throw_force
+	throw_speed = Vector2.from_angle(dir + PI/2) * speed
 	thrown = true
 	var tween = create_tween()
 	tween.tween_property(self, "throw_speed", Vector2.ZERO, 1.0)
-	tween.tween_callback(set.bind("thrown", false))
+	rotation_speed = 0.2
+	var tween_rot = create_tween()
+	tween_rot.tween_property(self, "rotation_speed", 0, 2)
+	tween_rot.tween_property(self, "rotation", 0, 1)
+	tween_rot.tween_callback(set.bind("thrown", false))

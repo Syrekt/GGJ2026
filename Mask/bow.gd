@@ -11,7 +11,7 @@ func input_handle() -> void:
 	if Input.is_action_just_pressed("attack"):
 		$DrawSFX.play()
 	if Input.is_action_pressed("attack"):
-		mask.weapon_charge.value += weapon_charge_speed
+		mask.weapon_charge.value += charge_speed
 	if Input.is_action_just_released("attack"):
 		shoot_arrow()
 

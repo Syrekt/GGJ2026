@@ -40,9 +40,6 @@ position = Vector2(-45, -31)
 [node name="Enemy" parent="Node" unique_id=855693433 instance=ExtResource("6_66tet")]
 position = Vector2(-139, 63)
 
-[node name="FmodBankLoader" type="FmodBankLoader" parent="Node" unique_id=389166723]
-bank_paths = ["res://FmodBanks/Desktop/Master.strings.bank", "res://FmodBanks/Desktop/Master.bank"]
-
 [node name="House1" type="Sprite2D" parent="Node" unique_id=740412688]
 position = Vector2(997, 128)
 texture = ExtResource("7_nfk4m")

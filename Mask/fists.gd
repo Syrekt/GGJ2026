@@ -34,12 +34,13 @@ func _physics_process(delta: float) -> void:
 
 func input_handle() -> void:
 	if Input.is_action_pressed("attack"):
-		mask.weapon_charge.value += weapon_charge_speed
+		mask.weapon_charge.value += charge_speed
 	if Input.is_action_just_released("attack"):
 		if grabbed_object:
-			grabbed_object.throw(rotation, mask.weapon_charge.value)
+			grabbed_object.throw(rotation, 30000.0 * (mask.weapon_charge.value/mask.weapon_charge.max_value))
 			mask.weapon_charge.value = 0
 			grabbed_object = null
+			play_attack_animation()
 			return
 
 		if mask.weapon_charge.value == mask.weapon_charge.max_value:
@@ -61,19 +62,21 @@ func input_handle() -> void:
 		attacking = true
 		hit_list.clear()
 
-		if tween_position:
-			tween_position.kill()
+		play_attack_animation()
 
-		tween_position = create_tween().bind_node(self)
-		var target_position = Vector2.from_angle(rotation + PI*0.5) * attack_force
-		print("target_position: "+str(target_position))
-		tween_position.tween_property(self, "position", target_position, 0.1)
-		tween_position.tween_callback(set.bind("can_buffer", true)).set_delay(0.1)
-		tween_position.set_parallel()
-		tween_position.tween_property(self, "position", Vector2.ZERO, 0.3)
-		tween_position.set_parallel(false)
-		tween_position.tween_callback(set.bind("attacking", false))
-		tween_position.tween_callback(set.bind("can_buffer", false))
+func play_attack_animation() -> void:
+	if tween_position:
+		tween_position.kill()
+	tween_position = create_tween().bind_node(self)
+	var target_position = Vector2.from_angle(rotation + PI*0.5) * attack_force
+	print("target_position: "+str(target_position))
+	tween_position.tween_property(self, "position", target_position, 0.1)
+	tween_position.tween_callback(set.bind("can_buffer", true)).set_delay(0.1)
+	tween_position.set_parallel()
+	tween_position.tween_property(self, "position", Vector2.ZERO, 0.3)
+	tween_position.set_parallel(false)
+	tween_position.tween_callback(set.bind("attacking", false))
+	tween_position.tween_callback(set.bind("can_buffer", false))
 
 
 func grab(node:Node2D) -> void:

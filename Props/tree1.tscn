@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mq1c"]
 size = Vector2(27, 26)
 
-[node name="Tree1" type="Area2D" unique_id=47681241]
+[node name="Tree1" type="CharacterBody2D" unique_id=1614457424]
 collision_layer = 17
 collision_mask = 0
 script = ExtResource("1_lgthx")
@@ -25,5 +25,4 @@ event_name = "event:/WoodChop"
 event_guid = "{266dc57d-a394-489b-8bde-289f73965859}"
 position = Vector2(-0.5, -44.5)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
