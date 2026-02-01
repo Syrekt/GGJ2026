@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c2n2aegwrwiod" path="res://Map/player_spawn.tscn" id="5_dn0og"]
 [ext_resource type="PackedScene" uid="uid://b0s2edx73sbtv" path="res://Props/house3_1.tscn" id="5_optgg"]
 [ext_resource type="PackedScene" uid="uid://cy3sdftqev1mr" path="res://Props/house3_2.tscn" id="6_a1o5d"]
+[ext_resource type="PackedScene" uid="uid://bjlp25fdgb56y" path="res://Enemies/bomb_enemy.tscn" id="9_787ct"]
 [ext_resource type="PackedScene" uid="uid://6e4v5fmji4j1" path="res://Map/map_switch.tscn" id="26_ix66k"]
 
 [node name="Node" type="Node2D" unique_id=2053476378]
@@ -127,3 +128,21 @@ previous_map = 2
 [node name="PlayerSpawn3" parent="." unique_id=1553051546 instance=ExtResource("5_dn0og")]
 position = Vector2(125, 835)
 previous_map = 1
+
+[node name="BombEnemy" parent="." unique_id=1074923789 instance=ExtResource("9_787ct")]
+position = Vector2(1080, 235)
+
+[node name="BombEnemy2" parent="." unique_id=1483605678 instance=ExtResource("9_787ct")]
+position = Vector2(1175, 184)
+
+[node name="BombEnemy3" parent="." unique_id=1089819517 instance=ExtResource("9_787ct")]
+position = Vector2(1059, 129)
+
+[node name="BombEnemy4" parent="." unique_id=2127510541 instance=ExtResource("9_787ct")]
+position = Vector2(387, 296)
+
+[node name="BombEnemy5" parent="." unique_id=1175695319 instance=ExtResource("9_787ct")]
+position = Vector2(308, 388)
+
+[node name="BombEnemy6" parent="." unique_id=805882010 instance=ExtResource("9_787ct")]
+position = Vector2(420, 398)

@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://cq0ofb2uwi8dp" path="res://Enemies/enemy.tscn" id="10_bwqor"]
 [ext_resource type="PackedScene" uid="uid://dw0raiovk74mo" path="res://Props/tree2.tscn" id="11_6bmda"]
 [ext_resource type="PackedScene" uid="uid://csyxy0y6fnheq" path="res://Enemies/plant_enemy.tscn" id="11_17kkb"]
+[ext_resource type="PackedScene" uid="uid://c5b4p6t5syloe" path="res://Map/stone_wall.tscn" id="13_rmqhi"]
+[ext_resource type="PackedScene" uid="uid://bjlp25fdgb56y" path="res://Enemies/bomb_enemy.tscn" id="14_kmrv2"]
 
 [node name="Node" type="Node2D" unique_id=2053476378]
 script = ExtResource("1_tdgkx")
@@ -243,7 +245,64 @@ position = Vector2(1211, 330)
 position = Vector2(1072, 406)
 
 [node name="Tree26" parent="Order" unique_id=303196321 instance=ExtResource("6_jxusa")]
-position = Vector2(2687, 197)
+position = Vector2(2285, 142)
+
+[node name="Tree40" parent="Order" unique_id=683541922 instance=ExtResource("6_jxusa")]
+position = Vector2(2318, 142)
+
+[node name="Tree42" parent="Order" unique_id=129152011 instance=ExtResource("6_jxusa")]
+position = Vector2(2253, 142)
+
+[node name="Tree43" parent="Order" unique_id=1002617955 instance=ExtResource("6_jxusa")]
+position = Vector2(2218, 142)
+
+[node name="Tree44" parent="Order" unique_id=1482960576 instance=ExtResource("6_jxusa")]
+position = Vector2(2218, 110)
+
+[node name="Tree45" parent="Order" unique_id=264900688 instance=ExtResource("6_jxusa")]
+position = Vector2(2218, 92)
+
+[node name="Tree46" parent="Order" unique_id=73076112 instance=ExtResource("6_jxusa")]
+position = Vector2(2218, 64)
+
+[node name="Tree47" parent="Order" unique_id=792099133 instance=ExtResource("6_jxusa")]
+position = Vector2(2218, 38)
+
+[node name="Tree48" parent="Order" unique_id=482842288 instance=ExtResource("6_jxusa")]
+position = Vector2(2216, 16)
+
+[node name="Tree49" parent="Order" unique_id=543312406 instance=ExtResource("6_jxusa")]
+position = Vector2(2216, 16)
+
+[node name="Tree41" parent="Order" unique_id=551031132 instance=ExtResource("6_jxusa")]
+position = Vector2(2350, 141)
+
+[node name="Tree50" parent="Order" unique_id=468087918 instance=ExtResource("6_jxusa")]
+position = Vector2(2381, 140)
+
+[node name="Tree51" parent="Order" unique_id=1799278658 instance=ExtResource("6_jxusa")]
+position = Vector2(2411, 139)
+
+[node name="Tree52" parent="Order" unique_id=2026769369 instance=ExtResource("6_jxusa")]
+position = Vector2(2442, 139)
+
+[node name="Tree53" parent="Order" unique_id=1462799607 instance=ExtResource("6_jxusa")]
+position = Vector2(2442, 112)
+
+[node name="Tree54" parent="Order" unique_id=1398615632 instance=ExtResource("6_jxusa")]
+position = Vector2(2442, 90)
+
+[node name="Tree55" parent="Order" unique_id=1439247681 instance=ExtResource("6_jxusa")]
+position = Vector2(2442, 64)
+
+[node name="Tree56" parent="Order" unique_id=627321926 instance=ExtResource("6_jxusa")]
+position = Vector2(2441, 45)
+
+[node name="Tree57" parent="Order" unique_id=251810528 instance=ExtResource("6_jxusa")]
+position = Vector2(2440, 21)
+
+[node name="Tree58" parent="Order" unique_id=649623850 instance=ExtResource("6_jxusa")]
+position = Vector2(2440, 0)
 
 [node name="Tree38" parent="Order" unique_id=957299245 instance=ExtResource("6_jxusa")]
 position = Vector2(976, 260)
@@ -262,3 +321,9 @@ position = Vector2(759, 273)
 
 [node name="Bush7" parent="Order" unique_id=1666863647 instance=ExtResource("5_atfah")]
 position = Vector2(702, 200)
+
+[node name="StoneWall" parent="." unique_id=1403999073 instance=ExtResource("13_rmqhi")]
+position = Vector2(2380, 583)
+
+[node name="BombEnemy" parent="." unique_id=1074923789 instance=ExtResource("14_kmrv2")]
+position = Vector2(2362, 711)

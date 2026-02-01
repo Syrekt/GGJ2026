@@ -74,7 +74,7 @@ func _physics_process(delta: float) -> void:
 			var collider = get_slide_collision(i).get_collider()
 			throw_speed = Vector2.ZERO
 			if tween_throw_speed: tween_throw_speed.kill()
-			if !throw_damage_dealth && collider.has_method("take_damage"):
+			if self != BombEnemy && !throw_damage_dealth && collider.has_method("take_damage"):
 				collider.take_damage(self)
 				throw_damage_dealth = true
 			break
@@ -121,9 +121,11 @@ func take_damage(source,damage:=1)-> void:
 		tween_knockback.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC).tween_property(self, "knockback_speed", Vector2(0, 0), 1.0)
 		if hp_cur <= 0:
 			create_tween().tween_property(sprite.material, "shader_parameter/tint_color", Color(0, 0, 0, 1), 1.0)
+			sprite.play("dead")
 	else:
 		knockback_speed = source.global_position.direction_to(global_position) * knockback_force_hurt
 		tween_knockback.tween_property(self, "knockback_speed", Vector2.ZERO, 0.2)
+		sprite.play("dead")
 
 	if !on_chase && hp_cur > 0:
 		if !mask: mask = Game.get_singleton().mask

@@ -13,7 +13,7 @@ func _on_throw() -> void:
 
 func _on_bomb_timer_timeout() -> void:
 	exploding = true
-	sprite.play("explode")
+	sprite.play("dead")
 	sprite.animation_finished.connect(queue_free)
 	$ExplosionSFX.play()
 

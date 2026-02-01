@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b3sgmoixokrvr"]
+
+[ext_resource type="Script" uid="uid://cvm23eed0xa13" path="res://Map/button.gd" id="1_2fkj7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kv2c"]
+
+[node name="Button" type="Area2D" unique_id=1576858746]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_2fkj7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1286636581]
+shape = SubResource("RectangleShape2D_3kv2c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

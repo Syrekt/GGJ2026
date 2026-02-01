@@ -14,10 +14,7 @@ func _on_hurt() -> void:
 		state_node.state.finished.emit("hurt")
 
 func _process(delta: float) -> void:
-	Debugger.printui("velocity: "+str(velocity))
-	Debugger.printui("sprite.animation: "+str(sprite.animation));
 	var state = state_node.state
-	Debugger.printui("state.name: "+str(state.name));
 	if grabbed: return
 	if dead:
 		if state_node.state.name != "dead":

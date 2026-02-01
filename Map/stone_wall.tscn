@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c5b4p6t5syloe"]
+
+[ext_resource type="Script" uid="uid://wpmuyubvcvaw" path="res://Map/stone_wall.gd" id="1_cw0tc"]
+[ext_resource type="Texture2D" uid="uid://hdo6xormddwc" path="res://Map/spr_wall1.png" id="2_gm4s7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gm4s7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eeawp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gm4s7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StoneWall" type="CharacterBody2D" unique_id=1403999073]
+collision_layer = 17
+script = ExtResource("1_cw0tc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1759955311]
+shape = SubResource("RectangleShape2D_gm4s7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1866599259]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_eeawp")
