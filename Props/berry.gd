@@ -11,7 +11,7 @@ func drop() -> void:
 	create_tween().tween_property(self, "velocity", Vector2.ZERO, 1.0)
 
 func pickup(mask:Mask) -> String:
-	mask.health.value += 10
+	mask.health.value += 2
 	queue_free()
 	return "eat"
 

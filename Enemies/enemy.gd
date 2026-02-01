@@ -34,9 +34,6 @@ var exploding := false
 
 signal on_throw
 
-func _process(delta: float) -> void:
-	Debugger.printui("test")
-
 func _physics_process(delta: float) -> void:
 	if grabbed: return
 
@@ -105,10 +102,10 @@ func take_damage(source,damage:=1)-> void:
 		rotation_tween = create_tween().bind_node(self)
 		rotation_tween.tween_property(self, "rotation_speed", 0, 2)
 
-		if source.has("death_sfx"):
+		if source is not Enemy:
 			source.death_sfx.play()
 	else:
-		if source.has("hit_sfx"):
+		if source is not Enemy:
 			source.hit_sfx.play()
 
 
@@ -122,7 +119,7 @@ func take_damage(source,damage:=1)-> void:
 		tween_knockback.tween_property(self, "knockback_speed", Vector2.ZERO, 0.2)
 
 	if !on_chase && hp_cur > 0:
-		if !mask: mask = get_tree().current_scene.find_child("Mask", true, false)
+		if !mask: mask = Game.get_singleton().mask
 		if mask: start_chase()
 func get_grabbed(grabbed_by:Fists) -> void:
 	reparent(grabbed_by)

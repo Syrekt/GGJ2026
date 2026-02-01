@@ -18,7 +18,7 @@ shape = SubResource("RectangleShape2D_5mq1c")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=709733874]
 position = Vector2(-0.5, -44.5)
 sprite_frames = ExtResource("2_0td5m")
-animation = &"hurt"
+animation = &"idle"
 
 [node name="ChopSFX" type="FmodEventEmitter2D" parent="." unique_id=1687343994]
 event_name = "event:/WoodChop"

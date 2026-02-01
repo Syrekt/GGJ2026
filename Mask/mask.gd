@@ -37,7 +37,11 @@ enum CLASSES { FIGHTER, RANGER, BRAWLER}
 var class_string : String
 
 
+
+
 func _ready() -> void:
+	Game.get_singleton().mask = self
+
 	quest.text = "Bring 3 woods"
 	restart_menu.hide()
 

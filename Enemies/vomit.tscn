@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c7jyf6wa35v3i"]
+
+[ext_resource type="Script" uid="uid://wbltgyfbf1s5" path="res://Enemies/vomit.gd" id="1_ksfc4"]
+[ext_resource type="Texture2D" uid="uid://vqgnelr67smx" path="res://Mask/arrow.png" id="2_0b0ji"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1cu7"]
+size = Vector2(8, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xiw7v"]
+size = Vector2(13, 6)
+
+[node name="Vomit" type="CharacterBody2D" unique_id=1054106644]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_ksfc4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=505776462]
+position = Vector2(7, 0)
+shape = SubResource("RectangleShape2D_i1cu7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=660947361]
+texture = ExtResource("2_0b0ji")
+
+[node name="Lifetime" type="Timer" parent="." unique_id=585375402]
+wait_time = 5.0
+autostart = true
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=943460442]
+collision_layer = 0
+collision_mask = 19
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1558008100]
+position = Vector2(6.5, 0)
+shape = SubResource("RectangleShape2D_xiw7v")
+
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

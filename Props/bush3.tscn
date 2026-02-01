@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://dfe5ikewvfkdh"]
+[gd_scene format=3 uid="uid://d01nmypjsdlom"]
 
-[ext_resource type="Script" uid="uid://bcc6jcfnxk256" path="res://Props/bush.gd" id="1_afgmc"]
-[ext_resource type="Texture2D" uid="uid://cirdpvl7okba7" path="res://Props/bush2.png" id="2_3lye2"]
-[ext_resource type="Texture2D" uid="uid://bw2o8dctoe4be" path="res://Props/bush1.png" id="3_ktrvo"]
-[ext_resource type="PackedScene" uid="uid://b4yrqp68d781v" path="res://Props/berry.tscn" id="4_3lye2"]
+[ext_resource type="Script" uid="uid://bcc6jcfnxk256" path="res://Props/bush.gd" id="1_rsjc5"]
+[ext_resource type="Texture2D" uid="uid://c83eq8y1u583u" path="res://Props/map3_bush2.png" id="2_rsjc5"]
+[ext_resource type="Texture2D" uid="uid://k73bfa5p7gyd" path="res://Props/map3_bush1.png" id="3_gr5do"]
+[ext_resource type="PackedScene" uid="uid://dfyg1cfwqh854" path="res://Props/berry3.tscn" id="4_rh0kj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upl2b"]
 
@@ -11,7 +11,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_3lye2")
+"texture": ExtResource("2_rsjc5")
 }],
 "loop": true,
 "name": &"default",
@@ -19,7 +19,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_ktrvo")
+"texture": ExtResource("3_gr5do")
 }],
 "loop": true,
 "name": &"harvested",
@@ -29,7 +29,7 @@ animations = [{
 [node name="Bush" type="Area2D" unique_id=866987035 node_paths=PackedStringArray("berry_list")]
 collision_layer = 16
 collision_mask = 0
-script = ExtResource("1_afgmc")
+script = ExtResource("1_rsjc5")
 berry_list = [NodePath("Berry"), NodePath("Berry2")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=792755222]
@@ -37,14 +37,15 @@ shape = SubResource("RectangleShape2D_upl2b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1162152042]
 sprite_frames = SubResource("SpriteFrames_qf0ca")
+animation = &"harvested"
 autoplay = "default"
-
-[node name="Berry" parent="." unique_id=1141624428 instance=ExtResource("4_3lye2")]
-position = Vector2(-13, -6)
-
-[node name="Berry2" parent="." unique_id=741052918 instance=ExtResource("4_3lye2")]
-position = Vector2(0, 2)
 
 [node name="HitSFX" type="FmodEventEmitter2D" parent="." unique_id=358189962]
 event_name = "event:/BushHit"
 event_guid = "{ba887214-1fdb-4e5e-ada2-e50e9a679efb}"
+
+[node name="Berry" parent="." unique_id=2136225987 instance=ExtResource("4_rh0kj")]
+position = Vector2(-11, -5)
+
+[node name="Berry2" parent="." unique_id=2021002045 instance=ExtResource("4_rh0kj")]
+position = Vector2(10, 3)

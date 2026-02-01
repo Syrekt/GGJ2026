@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c5hi2dppl3123"]
+
+[ext_resource type="Script" uid="uid://dc4ulofxf2wu0" path="res://Props/tree.gd" id="1_4hoaw"]
+[ext_resource type="Texture2D" uid="uid://3jk2h6xj4mrq" path="res://Props/map2_tree2.png" id="2_mlifr"]
+[ext_resource type="Texture2D" uid="uid://drcqpq280japi" path="res://Props/map2_tree1.png" id="3_kokee"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mq1c"]
+size = Vector2(27, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eotjq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mlifr")
+}],
+"loop": true,
+"name": &"cut",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kokee")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kokee")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Tree3" type="CharacterBody2D" unique_id=1614457424]
+collision_layer = 17
+collision_mask = 0
+script = ExtResource("1_4hoaw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1864500232]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_5mq1c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=709733874]
+position = Vector2(-0.5, -44.5)
+sprite_frames = SubResource("SpriteFrames_eotjq")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="ChopSFX" type="FmodEventEmitter2D" parent="." unique_id=1687343994]
+event_name = "event:/WoodChop"
+event_guid = "{266dc57d-a394-489b-8bde-289f73965859}"
+position = Vector2(-0.5, -44.5)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

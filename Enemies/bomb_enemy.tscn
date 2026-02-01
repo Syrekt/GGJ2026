@@ -163,6 +163,7 @@ autostart = true
 one_shot = true
 
 [node name="ExplosionRange" type="Area2D" parent="." unique_id=1967273849]
+visible = false
 collision_layer = 0
 collision_mask = 22
 

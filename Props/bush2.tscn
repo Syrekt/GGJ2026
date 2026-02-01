@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://ccscfp4cnvv1k"]
+
+[ext_resource type="Script" uid="uid://bcc6jcfnxk256" path="res://Props/bush.gd" id="1_b4sbj"]
+[ext_resource type="Texture2D" uid="uid://1f354sbhaj6j" path="res://Props/map2_bush2.png" id="2_b4sbj"]
+[ext_resource type="Texture2D" uid="uid://cpnfbcsbmikvg" path="res://Props/map2_bush1.png" id="3_wq1yc"]
+[ext_resource type="PackedScene" uid="uid://kh3r7iuedw2q" path="res://Props/berry2.tscn" id="4_b4sbj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upl2b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qf0ca"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b4sbj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wq1yc")
+}],
+"loop": true,
+"name": &"harvested",
+"speed": 5.0
+}]
+
+[node name="Bush" type="Area2D" unique_id=866987035 node_paths=PackedStringArray("berry_list")]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_b4sbj")
+berry_list = [NodePath("Berry2"), NodePath("Berry")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=792755222]
+shape = SubResource("RectangleShape2D_upl2b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1162152042]
+sprite_frames = SubResource("SpriteFrames_qf0ca")
+animation = &"harvested"
+autoplay = "default"
+
+[node name="HitSFX" type="FmodEventEmitter2D" parent="." unique_id=358189962]
+event_name = "event:/BushHit"
+event_guid = "{ba887214-1fdb-4e5e-ada2-e50e9a679efb}"
+
+[node name="Berry" parent="." unique_id=2136225987 instance=ExtResource("4_b4sbj")]
+position = Vector2(-10, -5)
+
+[node name="Berry2" parent="." unique_id=1081837702 instance=ExtResource("4_b4sbj")]
+position = Vector2(13, 3)

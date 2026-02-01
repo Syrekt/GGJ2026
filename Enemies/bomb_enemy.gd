@@ -1,5 +1,4 @@
-extends Enemy
-
+class_name BombEnemy extends Enemy
 
 
 func _ready() -> void:
@@ -22,4 +21,3 @@ func _on_bomb_timer_timeout() -> void:
 	for body in $ExplosionRange.get_overlapping_bodies():
 		if body == self: continue
 		body.take_damage(self)
-

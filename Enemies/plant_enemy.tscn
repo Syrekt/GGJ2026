@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://csyxy0y6fnheq"]
+
+[ext_resource type="Shader" uid="uid://bl8g44obhi3lq" path="res://outline.gdshader" id="1_2vxlc"]
+[ext_resource type="Script" uid="uid://cv8r2lu3i32pv" path="res://Enemies/plant_enemy.gd" id="1_eeev2"]
+[ext_resource type="Script" uid="uid://b7dk8vvgll08y" path="res://fsm.gd" id="5_psw6x"]
+[ext_resource type="Script" uid="uid://bec3qwapyb71e" path="res://Enemies/States/plant_idle.gd" id="6_7itcj"]
+[ext_resource type="Script" uid="uid://cqveat58e6olj" path="res://Enemies/States/plant_shoot.gd" id="8_xte70"]
+[ext_resource type="Script" uid="uid://di5yg8bgy7jkq" path="res://Enemies/States/plant_move.gd" id="9_cj1bv"]
+[ext_resource type="Script" uid="uid://twma0uaqoh0a" path="res://Enemies/States/plant_hurt.gd" id="10_iwi7w"]
+[ext_resource type="Script" uid="uid://dkcdbho2fmgkb" path="res://Enemies/States/plant_dead.gd" id="11_muwnx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_crlex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h8m60"]
+radius = 147.05441
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ysmvx"]
+radius = 234.21358
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v8d3k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6u6t2"]
+resource_local_to_scene = true
+shader = ExtResource("1_2vxlc")
+shader_parameter/outline_color = Color(0, 0, 0, 0)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+shader_parameter/tint_color = Color(1, 1, 1, 0)
+shader_parameter/alpha = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ysmvx"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[node name="PlantEnemy" type="CharacterBody2D" unique_id=156156798]
+script = ExtResource("1_eeev2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1875613445]
+visible = false
+shape = SubResource("CircleShape2D_crlex")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1240493157]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=416989513]
+shape = SubResource("CircleShape2D_h8m60")
+
+[node name="ChaseBoundaries" type="Area2D" parent="." unique_id=52295755]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseBoundaries" unique_id=937834783]
+shape = SubResource("CircleShape2D_ysmvx")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=735847412]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1812971484]
+shape = SubResource("CircleShape2D_v8d3k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=485866446]
+material = SubResource("ShaderMaterial_6u6t2")
+sprite_frames = SubResource("SpriteFrames_ysmvx")
+animation = &"death"
+
+[node name="ShootSFX" type="FmodEventEmitter2D" parent="." unique_id=108588258]
+event_guid = "{00000000-0000-0000-0000-000000000000}"
+preload_event = false
+
+[node name="StateMachine" type="Node" parent="." unique_id=87642543]
+script = ExtResource("5_psw6x")
+
+[node name="idle" type="Node" parent="StateMachine" unique_id=909217174]
+script = ExtResource("6_7itcj")
+
+[node name="shoot" type="Node" parent="StateMachine" unique_id=822502305]
+script = ExtResource("8_xte70")
+
+[node name="ShootTimer" type="Timer" parent="StateMachine/shoot" unique_id=443758486]
+one_shot = true
+autostart = true
+
+[node name="move" type="Node" parent="StateMachine" unique_id=1819379257]
+script = ExtResource("9_cj1bv")
+
+[node name="hurt" type="Node" parent="StateMachine" unique_id=1135355169]
+script = ExtResource("10_iwi7w")
+
+[node name="dead" type="Node" parent="StateMachine" unique_id=2029358570]
+script = ExtResource("11_muwnx")
