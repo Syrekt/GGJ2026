@@ -22,7 +22,6 @@ var bow_resource	:= preload("res://Mask/bow.tscn")
 @onready var quest	: Label = $UI/Control/Quest
 @onready var restart_menu: CanvasLayer = $"Restart Menu"
 @onready var pickup_collider: Area2D = $PickupCollider
-@onready var grab_range: Area2D = $GrabRange
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 @export var ranger_tex	: Texture

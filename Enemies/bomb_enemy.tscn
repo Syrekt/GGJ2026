@@ -27,7 +27,7 @@ radius = 148.22281
 [sub_resource type="CircleShape2D" id="CircleShape2D_75bui"]
 
 [node name="BombEnemy" type="CharacterBody2D" unique_id=1074923789]
-collision_layer = 4
+collision_layer = 132
 motion_mode = 1
 script = ExtResource("1_csltb")
 damage = 20
@@ -74,3 +74,6 @@ autostart = true
 
 [node name="BombTimer" type="Timer" parent="." unique_id=1203189068]
 one_shot = true
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="ChaseBoundaries" to="." method="_on_chase_boundaries_body_exited"]

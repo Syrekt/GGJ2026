@@ -2581,9 +2581,6 @@ radius = 25.179358
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kpqyf"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_k6qtf"]
-radius = 26.019224
-
 [node name="Mask" type="CharacterBody2D" unique_id=2066154547]
 collision_layer = 2
 motion_mode = 1
@@ -2593,6 +2590,8 @@ direction = Vector2(-1, 1)
 ranger_tex = ExtResource("2_glqgf")
 fighter_tex = ExtResource("3_v251d")
 brawler_tex = ExtResource("4_uhyq8")
+
+[node name="FmodListener2D" type="FmodListener2D" parent="." unique_id=525152753]
 
 [node name="WeaponCharge" type="TextureProgressBar" parent="." unique_id=26232644]
 z_index = 2
@@ -2807,13 +2806,6 @@ collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupCollider" unique_id=1482646349]
 shape = SubResource("CircleShape2D_kpqyf")
-
-[node name="GrabRange" type="Area2D" parent="." unique_id=829340289]
-collision_layer = 0
-collision_mask = 128
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabRange" unique_id=325505539]
-shape = SubResource("CircleShape2D_k6qtf")
 
 [connection signal="area_entered" from="NPCDetector" to="." method="_on_npc_detector_area_entered"]
 [connection signal="value_changed" from="UI/Control/VBoxContainer/Health" to="UI/Control/VBoxContainer/Health" method="_on_value_changed"]

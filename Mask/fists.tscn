@@ -5,6 +5,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_02x86"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhun6"]
+radius = 26.019224
+
 [node name="Fists" type="Area2D" unique_id=633064068]
 z_index = 1
 collision_layer = 0
@@ -43,3 +46,11 @@ event_guid = "{956b12fa-6dea-4dda-a935-315a9d744ee6}"
 [node name="DeathSFX" type="FmodEventEmitter2D" parent="." unique_id=1573563462]
 event_name = "event:/EnemyDeathFists"
 event_guid = "{7cc0f1dc-0404-456f-9fdf-4ab74d9287ef}"
+
+[node name="GrabRange" type="Area2D" parent="." unique_id=937976897]
+position = Vector2(0, 20)
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabRange" unique_id=349115582]
+shape = SubResource("CircleShape2D_qhun6")

@@ -8,6 +8,7 @@ var attack_buffered := false
 var can_buffer := false
 
 var grabbed_object : Node2D
+@onready var grab_range: Area2D = $GrabRange
 
 func _process(delta: float) -> void:
 	Debugger.printui("position: "+str(position))
@@ -46,7 +47,6 @@ func input_handle() -> void:
 		if mask.weapon_charge.value == mask.weapon_charge.max_value:
 			var grabbed := false
 
-			var grab_range = mask.grab_range
 			for grab_object in grab_range.get_overlapping_bodies():
 				grab(grab_object)
 				grabbed = true
