@@ -4,6 +4,7 @@ var timer : Timer
 
 func enter(previous_state_path: String, data := {}) -> void:
 	owner.weapon.queue_free()
+	owner.weapon_charge.value = 0
 	match owner.direction:
 		Vector2(1, 1):
 			owner.anim_player.play(owner.class_string + "_death_dright")

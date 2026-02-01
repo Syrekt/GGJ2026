@@ -1,7 +1,7 @@
 extends State
 
 func enter(previous_state_path: String, data := {}) -> void:
-	owner.weapon_charge = 0
+	owner.weapon_charge.value = 0
 	match owner.direction:
 		Vector2(1, 1):
 			owner.anim_player.play(owner.class_string + "_hurt_dright")

@@ -10,6 +10,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				restart_game()
 
 func restart_game() -> void:
-	get_child(0).queue_free()
+	for child in get_children():
+		if child is Node2D:
+			child.queue_free()
 
 	add_child(load("res://main_scene.tscn").instantiate())

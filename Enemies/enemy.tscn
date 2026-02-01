@@ -3,10 +3,19 @@
 [ext_resource type="Script" uid="uid://b6svhycrt6ga5" path="res://Enemies/enemy.gd" id="1_3ih25"]
 [ext_resource type="Shader" uid="uid://bl8g44obhi3lq" path="res://outline.gdshader" id="2_47qgu"]
 [ext_resource type="Texture2D" uid="uid://s8eq3g5jpdf1" path="res://Enemies/Villain 01.png" id="2_bxkaj"]
+[ext_resource type="Texture2D" uid="uid://symh4oqp57mg" path="res://VFX/explosion.png" id="3_572h1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_chnrf"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_572h1"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bxkaj"]
+radius = 72.780495
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_47qgu"]
+radius = 148.22281
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_572h1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y4poy"]
 resource_local_to_scene = true
 shader = ExtResource("2_47qgu")
 shader_parameter/outline_color = Color(0, 0, 0, 0)
@@ -18,13 +27,95 @@ shader_parameter/number_of_images = Vector2(1, 1)
 shader_parameter/tint_color = Color(1, 1, 1, 0)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bxkaj"]
-radius = 72.780495
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lpto"]
+atlas = ExtResource("3_572h1")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_47qgu"]
-radius = 148.22281
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv0el"]
+atlas = ExtResource("3_572h1")
+region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_572h1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_75bui"]
+atlas = ExtResource("3_572h1")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vas4"]
+atlas = ExtResource("3_572h1")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkp70"]
+atlas = ExtResource("3_572h1")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmhkd"]
+atlas = ExtResource("3_572h1")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8hwt"]
+atlas = ExtResource("3_572h1")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4poy"]
+atlas = ExtResource("2_bxkaj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ex0xn"]
+atlas = ExtResource("2_bxkaj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klhoc"]
+atlas = ExtResource("2_bxkaj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yct14"]
+atlas = ExtResource("2_bxkaj")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rt1x0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lpto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv0el")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75bui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vas4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkp70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmhkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8hwt")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4poy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ex0xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klhoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yct14")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Enemy" type="CharacterBody2D" unique_id=855693433]
 collision_layer = 132
@@ -36,13 +127,6 @@ knockback_force_death = 10000.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=47989863]
 visible = false
 shape = SubResource("CircleShape2D_chnrf")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=258190751]
-material = SubResource("ShaderMaterial_572h1")
-texture = ExtResource("2_bxkaj")
-hframes = 4
-region_enabled = true
-region_rect = Rect2(0, 0, 64, 16)
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=1644324632]
 visible = false
@@ -72,6 +156,12 @@ shape = SubResource("CircleShape2D_572h1")
 wait_time = 0.5
 one_shot = true
 autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1576283406]
+material = SubResource("ShaderMaterial_y4poy")
+sprite_frames = SubResource("SpriteFrames_rt1x0")
+animation = &"idle"
+autoplay = "idle"
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="ChaseBoundaries" to="." method="_on_chase_boundaries_body_exited"]

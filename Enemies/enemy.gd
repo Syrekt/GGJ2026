@@ -17,18 +17,20 @@ var hp_cur = hp_max
 var knockback_speed := Vector2.ZERO
 var throw_speed		:= Vector2.ZERO
 var rotation_speed := 0.0
+var rotation_tween : Tween
 
 var dead := false
 var grabbed := false
 var thrown := false
 var tween_throw_speed : Tween
 
-@onready var sprite : Sprite2D = $Sprite2D
+@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var starting_pos := global_position
 @onready var parent_prv = owner
 
 var tween_knockback : Tween
 var throw_damage_dealth := false
+var exploding := false
 
 signal on_throw
 
@@ -38,7 +40,10 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if grabbed: return
 
-	if dead || thrown:
+	if exploding:
+		rotation = 0
+		rotation_speed = 0
+	elif dead || thrown:
 		rotate(rotation_speed)
 	if dead:
 		Debugger.printui("rotation: "+str(rotation))
@@ -63,7 +68,6 @@ func _physics_process(delta: float) -> void:
 	if thrown:
 		for i in get_slide_collision_count():
 			var collider = get_slide_collision(i).get_collider()
-			print("collider: "+str(collider))
 			throw_speed = Vector2.ZERO
 			if tween_throw_speed: tween_throw_speed.kill()
 			if !throw_damage_dealth && collider.has_method("take_damage"):
@@ -97,11 +101,15 @@ func take_damage(source,damage:=1)-> void:
 		dead = true
 
 		rotation_speed = 0.2
-		create_tween().bind_node(self).tween_property(self, "rotation_speed", 0, 2)
+		if rotation_tween: rotation_tween.kill()
+		rotation_tween = create_tween().bind_node(self)
+		rotation_tween.tween_property(self, "rotation_speed", 0, 2)
 
-		source.death_sfx.play()
+		if source.has("death_sfx"):
+			source.death_sfx.play()
 	else:
-		source.hit_sfx.play()
+		if source.has("hit_sfx"):
+			source.hit_sfx.play()
 
 
 	if !on_chase || hp_cur <= 0:
@@ -137,4 +145,3 @@ func throw(dir:float,speed:float) -> void:
 	tween_rot.tween_property(self, "rotation_speed", 0, 2)
 	tween_rot.tween_property(self, "rotation", 0, 1)
 	tween_rot.tween_callback(set.bind("thrown", false))
-

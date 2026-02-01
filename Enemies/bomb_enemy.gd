@@ -13,5 +13,13 @@ func _on_throw() -> void:
 	tween.tween_property(sprite.material, "shader_parameter/tint_color", Color(1, 0, 0, 0), 0.2)
 
 func _on_bomb_timer_timeout() -> void:
-	print("explode")
-	queue_free()
+	exploding = true
+	sprite.play("explode")
+	sprite.animation_finished.connect(queue_free)
+	$ExplosionSFX.play()
+
+
+	for body in $ExplosionRange.get_overlapping_bodies():
+		if body == self: continue
+		body.take_damage(self)
+

@@ -43,13 +43,12 @@ func _physics_process(delta: float) -> void:
 func input_handle() -> void:
 	if Input.is_action_pressed("attack"):
 		mask.weapon_charge.value += charge_speed
-		if mask.weapon_charge.value == mask.weapon_charge.max_value:
+		if mask.weapon_charge.value == mask.weapon_charge.max_value && !on_fire:
 			set_on_fire()
 
 
 	if Input.is_action_just_released("attack"):
 		mask.weapon_charge.value = 0
-		get_tree().create_timer(2.4).timeout.connect(reset_state)
 		if on_fire:
 			$FireWooshSFX.play()
 		else:
@@ -70,6 +69,7 @@ func input_handle() -> void:
 
 
 func set_on_fire() -> void:
+	get_tree().create_timer(2.4).timeout.connect(reset_state)
 	if sprite.animation != "fire_sword":
 		sprite.play("fire_sword")
 	on_fire = true
