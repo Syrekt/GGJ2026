@@ -7,7 +7,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_pressed() && event is InputEventKey:
 		match event.keycode:
 			KEY_R:
-				restart_game()
+				if OS.is_debug_build():
+					restart_game()
 
 func restart_game() -> void:
 	for child in get_children():
