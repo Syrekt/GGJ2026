@@ -1,7 +1,9 @@
 class_name BombEnemy extends Enemy
+@onready var explosion_range: Area2D = $ExplosionRange
 
 
 func _ready() -> void:
+	throw_damage_dealth = true
 	on_throw.connect(_on_throw)
 	$BombTimer.timeout.connect(_on_bomb_timer_timeout)
 
@@ -18,6 +20,6 @@ func _on_bomb_timer_timeout() -> void:
 	$ExplosionSFX.play()
 
 
-	for body in $ExplosionRange.get_overlapping_bodies():
+	for body in explosion_range.get_overlapping_bodies():
 		if body == self: continue
 		body.take_damage(self)

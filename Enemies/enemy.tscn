@@ -89,7 +89,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_koi6q")
 }],
-"loop": true,
+"loop": false,
 "name": &"dead",
 "speed": 5.0
 }, {
@@ -123,7 +123,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xq7gr")
 }],
-"loop": false,
+"loop": true,
 "name": &"walk",
 "speed": 10.0
 }]
@@ -170,8 +170,9 @@ autostart = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1576283406]
 material = SubResource("ShaderMaterial_y4poy")
+position = Vector2(2, -25)
 sprite_frames = SubResource("SpriteFrames_rt1x0")
-animation = &"dead"
+animation = &"walk"
 autoplay = "idle"
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

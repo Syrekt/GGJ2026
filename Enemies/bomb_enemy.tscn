@@ -16,7 +16,7 @@ radius = 148.22281
 [sub_resource type="CircleShape2D" id="CircleShape2D_75bui"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_klhoc"]
-radius = 38.209946
+radius = 53.009434
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y4poy"]
 resource_local_to_scene = true
@@ -196,7 +196,6 @@ autostart = true
 one_shot = true
 
 [node name="ExplosionRange" type="Area2D" parent="." unique_id=1967273849]
-visible = false
 collision_layer = 0
 collision_mask = 22
 

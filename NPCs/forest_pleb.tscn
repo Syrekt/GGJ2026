@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://yh141q33t5rw"]
 
 [ext_resource type="Script" uid="uid://cmwcwr5nnkqoh" path="res://NPCs/npc.gd" id="1_fgv75"]
-[ext_resource type="Resource" uid="uid://c54ve636mhr4r" path="res://Dialogues/first_npc.dialogue" id="2_wgi5r"]
+[ext_resource type="Resource" uid="uid://dqa71scjiejr8" path="res://Dialogues/third_npc.dialogue" id="2_fgv75"]
 [ext_resource type="Texture2D" uid="uid://cbsii2ji0is1x" path="res://NPCs/emotes001.png" id="3_7idcd"]
 [ext_resource type="Texture2D" uid="uid://beg180gxn005h" path="res://UI/GUI.png" id="4_ec5rq"]
 [ext_resource type="Script" uid="uid://c8wmd247u5ur1" path="res://NPCs/overhead_balloon.gd" id="5_sualv"]
@@ -71,7 +71,8 @@ animations = [{
 
 [node name="NPC" type="Node2D" unique_id=391261364]
 script = ExtResource("1_fgv75")
-dialogue_resource = ExtResource("2_wgi5r")
+dialogue_resource = ExtResource("2_fgv75")
+dialogue_start = "random"
 has_dialogue = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1166322163]

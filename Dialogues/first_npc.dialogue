@@ -1,15 +1,10 @@
 ~ start
-Elder Mask: 
+Elder Mask: Hey, I heard you want to move away and explore new places. 
+Elder Mask: The village path is blocked by some trees that need a cutting 
+Elder Mask: You can head outside if you manage to clear the blockage
 Elder Mask: The Mask gives us power, use it to kill you enemies and open your path.
-- What can you tell me about The Mask?
-	Elder Mask: Each tribe has it's own Mask and they won't accept other Masks. 
-	Elder Mask: They can give you their Mask if you earn their favor.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+=> END
+
+~ random
+Pleb Mask: Howdy! | I got nothing to say.
 => END

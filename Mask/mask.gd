@@ -1,6 +1,7 @@
 class_name Mask extends CharacterBody2D
 
 @onready var state_node := $StateMachine
+@onready var mask_frame: AnimatedSprite2D = $UI/Control/VBoxContainer/MaskFrame
 
 @export var direction	:= Vector2(1, 0)
 @export var move_speed	:= 8000.0
@@ -46,7 +47,7 @@ func _ready() -> void:
 		health.value = game.player_health
 	game.mask = self
 
-	quest.text = "Bring 3 woods"
+	#quest.text = "Bring 3 woods"
 	restart_menu.hide()
 
 	update_class()
@@ -142,6 +143,8 @@ func update_class() -> void:
 		CLASSES.BRAWLER:
 			weapon = fists_resource.instantiate()
 			class_string = "brawler"
+			
+	mask_frame.play(class_string)
 	weapon.mask = self
 	add_child(weapon)
 

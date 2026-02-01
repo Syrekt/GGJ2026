@@ -23,6 +23,8 @@ func take_damage(source,damage:=1) -> void:
 	get_tree().current_scene.add_child(_drop)
 
 	if hp_cur <= 0:
+		set_collision_layer_value(1, false)
+		set_collision_layer_value(5, false)
 		sprite.play("cut")
 
 	var ttime = 0.1

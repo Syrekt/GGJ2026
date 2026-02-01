@@ -74,7 +74,7 @@ func _physics_process(delta: float) -> void:
 			var collider = get_slide_collision(i).get_collider()
 			throw_speed = Vector2.ZERO
 			if tween_throw_speed: tween_throw_speed.kill()
-			if self != BombEnemy && !throw_damage_dealth && collider.has_method("take_damage"):
+			if !throw_damage_dealth && collider.has_method("take_damage"):
 				collider.take_damage(self)
 				throw_damage_dealth = true
 			break
@@ -104,10 +104,11 @@ func take_damage(source,damage:=1)-> void:
 	if hp_cur <= 0:
 		dead = true
 
-		rotation_speed = 0.2
-		if rotation_tween: rotation_tween.kill()
-		rotation_tween = create_tween().bind_node(self)
-		rotation_tween.tween_property(self, "rotation_speed", 0, 2)
+		if self is not BombEnemy:
+			rotation_speed = 0.2
+			if rotation_tween: rotation_tween.kill()
+			rotation_tween = create_tween().bind_node(self)
+			rotation_tween.tween_property(self, "rotation_speed", 0, 2)
 
 		if source is not Enemy:
 			source.death_sfx.play()
@@ -122,10 +123,12 @@ func take_damage(source,damage:=1)-> void:
 		if hp_cur <= 0:
 			create_tween().tween_property(sprite.material, "shader_parameter/tint_color", Color(0, 0, 0, 1), 1.0)
 			sprite.play("dead")
+			if self is BombEnemy:
+				await sprite.animation_finished
+				queue_free()
 	else:
 		knockback_speed = source.global_position.direction_to(global_position) * knockback_force_hurt
 		tween_knockback.tween_property(self, "knockback_speed", Vector2.ZERO, 0.2)
-		sprite.play("dead")
 
 	if !on_chase && hp_cur > 0:
 		if !mask: mask = Game.get_singleton().mask
@@ -151,3 +154,4 @@ func throw(dir:float,speed:float) -> void:
 	tween_rot.tween_property(self, "rotation_speed", 0, 2)
 	tween_rot.tween_property(self, "rotation", 0, 1)
 	tween_rot.tween_callback(set.bind("thrown", false))
+
