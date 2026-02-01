@@ -10,4 +10,5 @@ func _ready() -> void:
 	else:
 		var mask = MASK.instantiate()
 		mask.global_position = global_position
+
 		get_tree().current_scene.add_child(mask)

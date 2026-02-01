@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://mt58k6oijr0t" path="res://UI/health_progress.png" id="11_4rbsa"]
 [ext_resource type="Script" uid="uid://dj53v5x1h3sn2" path="res://Mask/States/dodge.gd" id="11_uhyq8"]
 [ext_resource type="Script" uid="uid://bdevra7tti3er" path="res://Mask/health.gd" id="12_4rbsa"]
-[ext_resource type="Script" uid="uid://8i5nf747nbox" path="res://Mask/states/death.gd" id="12_dh0up"]
+[ext_resource type="Script" uid="uid://8i5nf747nbox" path="res://Mask/States/death.gd" id="12_dh0up"]
 [ext_resource type="FontFile" uid="uid://b2v76ut8nn70a" path="res://Fonts/Ohrenstead.ttf" id="14_dpjmy"]
 [ext_resource type="Texture2D" uid="uid://beg180gxn005h" path="res://UI/GUI.png" id="14_qtqal"]
 [ext_resource type="Texture2D" uid="uid://d32onwxpm2fb1" path="res://UI/button_normal.png" id="15_kpqyf"]
@@ -2659,9 +2659,7 @@ script = ExtResource("6_b3eq5")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="." unique_id=546179078 node_paths=PackedStringArray("follow_target")]
-top_level = true
 script = ExtResource("7_kvpt5")
-follow_mode = 2
 follow_target = NodePath("..")
 zoom = Vector2(3, 3)
 snap_to_pixel = true

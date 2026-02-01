@@ -3,6 +3,9 @@ class_name Game extends Node
 var mask : Mask
 enum MAPS { NONE, VILLAGE, RUINS, FOREST }
 var previous_map : MAPS = MAPS.NONE
+@onready var canvas_modulate: CanvasModulate = $CanvasModulate
+
+var canvas_tween : Tween
 
 static func get_singleton() -> Game:
 	return (Game as Script).get_meta(&"singleton") as Game
@@ -21,14 +24,27 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func restart_game() -> void:
 	for child in get_children():
-		if child is Node2D:
+		if child is Node2D && child != canvas_modulate:
 			child.queue_free()
 
 	add_child(load("res://main_scene.tscn").instantiate())
 
 func switch_scene(from_map:MAPS,target_scene:PackedScene) -> void:
-	print("Switching to scene: " + str(target_scene))
+	previous_map = from_map
+	call_deferred("_do_scene_switch", target_scene)
+
+	if canvas_tween: canvas_tween.kill()
+
+	canvas_tween = create_tween().bind_node(self)
+	canvas_modulate.color = Color(0, 0, 0, 1)
+
+	canvas_tween.tween_property(canvas_modulate, "color", Color(1, 1, 1, 1), 1.0)
+	
+
+func _do_scene_switch(target_scene: PackedScene) -> void:
 	for child in get_children():
-		if child is Node2D:
+		if child is Node2D && child != canvas_modulate:
 			child.queue_free()
-	get_tree().current_scene.add_child(target_scene.instantiate())
+
+	var new_scene := target_scene.instantiate()
+	get_tree().current_scene.add_child(new_scene)

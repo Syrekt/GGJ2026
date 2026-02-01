@@ -11,3 +11,5 @@ bank_paths = ["res://FmodBanks/Desktop/Master.strings.bank", "res://FmodBanks/De
 [node name="BGM" type="FmodEventEmitter2D" parent="." unique_id=199336445]
 event_name = "event:/BGM"
 event_guid = "{c21f1cb4-133f-4208-8dbc-9058d4b12113}"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2096092386]

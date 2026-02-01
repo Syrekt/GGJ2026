@@ -23,6 +23,7 @@ var bow_resource	:= preload("res://Mask/bow.tscn")
 @onready var restart_menu: CanvasLayer = $"Restart Menu"
 @onready var pickup_collider: Area2D = $PickupCollider
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var pcam: PhantomCamera2D = $PhantomCamera2D
 
 @export var ranger_tex	: Texture
 @export var fighter_tex : Texture
@@ -46,6 +47,9 @@ func _ready() -> void:
 	restart_menu.hide()
 
 	update_class()
+
+	pcam.follow_mode = PhantomCamera2D.FollowMode.SIMPLE
+	pcam.follow_target = self
 
 func _process(delta: float) -> void:
 	if interaction_target:
