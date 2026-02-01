@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://bmmdtuva8ots1"]
+[gd_scene format=3 uid="uid://cy3sdftqev1mr"]
 
-[ext_resource type="Texture2D" uid="uid://c72eo37hfbdcy" path="res://Props/House2.png" id="1_ss12u"]
+[ext_resource type="Texture2D" uid="uid://c72eo37hfbdcy" path="res://Props/House2.png" id="1_k750n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66tet"]
-size = Vector2(125, 53)
+size = Vector2(24, 31)
 
 [node name="Node2D" type="Node2D" unique_id=263488545]
 
 [node name="House2" type="Sprite2D" parent="." unique_id=588124042]
 position = Vector2(0, -54)
-texture = ExtResource("1_ss12u")
+texture = ExtResource("1_k750n")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="House2" unique_id=1142929863]
 

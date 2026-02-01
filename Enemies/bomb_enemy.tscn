@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c3jrn0fw43hrm" path="res://Enemies/bomb_enemy.gd" id="1_csltb"]
 [ext_resource type="Shader" uid="uid://bl8g44obhi3lq" path="res://outline.gdshader" id="2_h4mii"]
+[ext_resource type="Texture2D" uid="uid://c021knrpsyc34" path="res://VFX/explosion_sheet_strip7.png" id="3_ex0xn"]
 [ext_resource type="Texture2D" uid="uid://s8eq3g5jpdf1" path="res://Enemies/Villain 01.png" id="3_y4poy"]
-[ext_resource type="Texture2D" uid="uid://symh4oqp57mg" path="res://VFX/explosion.png" id="4_y4poy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ex0xn"]
 
@@ -31,31 +31,31 @@ shader_parameter/tint_color = Color(1, 1, 1, 0)
 shader_parameter/alpha = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2lpto"]
-atlas = ExtResource("4_y4poy")
+atlas = ExtResource("3_ex0xn")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uv0el"]
-atlas = ExtResource("4_y4poy")
+atlas = ExtResource("3_ex0xn")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75bui"]
-atlas = ExtResource("4_y4poy")
+atlas = ExtResource("3_ex0xn")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vas4"]
-atlas = ExtResource("4_y4poy")
+atlas = ExtResource("3_ex0xn")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hkp70"]
-atlas = ExtResource("4_y4poy")
+atlas = ExtResource("3_ex0xn")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lmhkd"]
-atlas = ExtResource("4_y4poy")
+atlas = ExtResource("3_ex0xn")
 region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b8hwt"]
-atlas = ExtResource("4_y4poy")
+atlas = ExtResource("3_ex0xn")
 region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4poy"]
@@ -175,7 +175,6 @@ material = SubResource("ShaderMaterial_y4poy")
 sprite_frames = SubResource("SpriteFrames_yct14")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.6068031
 
 [node name="ExplosionSFX" type="FmodEventEmitter2D" parent="." unique_id=752228772]
 event_name = "event:/Explosion"

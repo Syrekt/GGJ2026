@@ -1,13 +1,49 @@
 [gd_scene format=3 uid="uid://c7jyf6wa35v3i"]
 
 [ext_resource type="Script" uid="uid://wbltgyfbf1s5" path="res://Enemies/vomit.gd" id="1_ksfc4"]
-[ext_resource type="Texture2D" uid="uid://vqgnelr67smx" path="res://Mask/arrow.png" id="2_0b0ji"]
+[ext_resource type="Texture2D" uid="uid://dbwhfaiqufoya" path="res://Enemies/spr_plantpoison_strip4.png" id="2_ksfc4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1cu7"]
 size = Vector2(8, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xiw7v"]
 size = Vector2(13, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b0ji"]
+atlas = ExtResource("2_ksfc4")
+region = Rect2(0, 0, 35, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n027m"]
+atlas = ExtResource("2_ksfc4")
+region = Rect2(35, 0, 35, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf3ky"]
+atlas = ExtResource("2_ksfc4")
+region = Rect2(70, 0, 35, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjr58"]
+atlas = ExtResource("2_ksfc4")
+region = Rect2(105, 0, 35, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s1k8k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b0ji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n027m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf3ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjr58")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
 
 [node name="Vomit" type="CharacterBody2D" unique_id=1054106644]
 collision_layer = 0
@@ -18,9 +54,6 @@ script = ExtResource("1_ksfc4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=505776462]
 position = Vector2(7, 0)
 shape = SubResource("RectangleShape2D_i1cu7")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=660947361]
-texture = ExtResource("2_0b0ji")
 
 [node name="Lifetime" type="Timer" parent="." unique_id=585375402]
 wait_time = 5.0
@@ -33,5 +66,11 @@ collision_mask = 19
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1558008100]
 position = Vector2(6.5, 0)
 shape = SubResource("RectangleShape2D_xiw7v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1253785612]
+sprite_frames = SubResource("SpriteFrames_s1k8k")
+autoplay = "default"
+frame = 1
+frame_progress = 0.91589904
 
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

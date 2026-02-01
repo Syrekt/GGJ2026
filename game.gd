@@ -5,7 +5,11 @@ enum MAPS { NONE, VILLAGE, RUINS, FOREST }
 var previous_map : MAPS = MAPS.NONE
 @onready var canvas_modulate: CanvasModulate = $CanvasModulate
 
+var player_health : int
+
 var canvas_tween : Tween
+
+signal scene_ready
 
 static func get_singleton() -> Game:
 	return (Game as Script).get_meta(&"singleton") as Game
@@ -14,6 +18,8 @@ func _ready() -> void:
 	get_script().set_meta(&"singleton", self)
 
 	add_child(load("res://Map/village_scene.tscn").instantiate())
+
+	scene_ready.emit()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_pressed() && event is InputEventKey:
@@ -48,3 +54,7 @@ func _do_scene_switch(target_scene: PackedScene) -> void:
 
 	var new_scene := target_scene.instantiate()
 	get_tree().current_scene.add_child(new_scene)
+
+	await get_tree().process_frame
+
+	scene_ready.emit()

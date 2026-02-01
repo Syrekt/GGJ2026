@@ -3,7 +3,7 @@ class_name Mask extends CharacterBody2D
 @onready var state_node := $StateMachine
 
 @export var direction	:= Vector2(1, 0)
-@export var move_speed	:= 10.0 * 600.0
+@export var move_speed	:= 8000.0
 
 @export var knockback_force := 50.0 * 600.0
 var knockback_speed := Vector2.ZERO
@@ -41,7 +41,10 @@ var class_string : String
 
 
 func _ready() -> void:
-	Game.get_singleton().mask = self
+	var game = Game.get_singleton()
+	if game.player_health:
+		health.value = game.player_health
+	game.mask = self
 
 	quest.text = "Bring 3 woods"
 	restart_menu.hide()
@@ -52,6 +55,8 @@ func _ready() -> void:
 	pcam.follow_target = self
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("teleport") && OS.is_debug_build():
+		global_position = get_global_mouse_position()
 	if interaction_target:
 		if Input.is_action_just_pressed("interact"):
 			interaction_target.interact()

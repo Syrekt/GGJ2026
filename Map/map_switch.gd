@@ -5,4 +5,7 @@ extends Area2D
 
 
 func _on_body_entered(body: Node2D) -> void:
-	Game.get_singleton().switch_scene(previous_map, load(target_scene))
+	var game = Game.get_singleton()
+	game.player_health = body.health.value
+	game.switch_scene(previous_map, load(target_scene))
+

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bmk3cxp6gto1v"]
+
+[ext_resource type="Texture2D" uid="uid://ijhisp4n32e2" path="res://Props/map3_pillar2.png" id="1_25gr6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66tet"]
+size = Vector2(23, 29)
+
+[node name="Pillar" type="Node2D" unique_id=2104695754]
+
+[node name="House1" type="Sprite2D" parent="." unique_id=603569195]
+position = Vector2(-1, -30)
+texture = ExtResource("1_25gr6")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="House1" unique_id=1833528356]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="House1/CharacterBody2D" unique_id=812436787]
+position = Vector2(0.5, 11.5)
+shape = SubResource("RectangleShape2D_66tet")

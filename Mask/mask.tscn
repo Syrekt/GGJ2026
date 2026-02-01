@@ -2587,6 +2587,7 @@ motion_mode = 1
 slide_on_ceiling = false
 script = ExtResource("1_f250e")
 direction = Vector2(-1, 1)
+move_speed = 9000.0
 ranger_tex = ExtResource("2_glqgf")
 fighter_tex = ExtResource("3_v251d")
 brawler_tex = ExtResource("4_uhyq8")
@@ -2649,7 +2650,7 @@ script = ExtResource("12_dh0up")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=995212202]
 physics_interpolation_mode = 1
 top_level = true
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=490921370]
@@ -2658,10 +2659,9 @@ process_physics_priority = 300
 script = ExtResource("6_b3eq5")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=546179078 node_paths=PackedStringArray("follow_target")]
+[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=546179078]
 script = ExtResource("7_kvpt5")
-follow_target = NodePath("..")
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 snap_to_pixel = true
 tween_resource = SubResource("Resource_omjc0")
 tween_on_load = false

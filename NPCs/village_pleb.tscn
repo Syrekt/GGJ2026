@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://dslcrgl3ktc5s"]
+
+[ext_resource type="Script" uid="uid://cmwcwr5nnkqoh" path="res://NPCs/npc.gd" id="1_rt3us"]
+[ext_resource type="Resource" uid="uid://c54ve636mhr4r" path="res://Dialogues/first_npc.dialogue" id="2_i1okn"]
+[ext_resource type="Texture2D" uid="uid://cbsii2ji0is1x" path="res://NPCs/emotes001.png" id="4_2ch1h"]
+[ext_resource type="Texture2D" uid="uid://beg180gxn005h" path="res://UI/GUI.png" id="5_riwf5"]
+[ext_resource type="Script" uid="uid://c8wmd247u5ur1" path="res://NPCs/overhead_balloon.gd" id="6_r0vkm"]
+[ext_resource type="Texture2D" uid="uid://qr7wyjhcxsi" path="res://NPCs/npcs.png" id="7_rt3us"]
+[ext_resource type="FontFile" uid="uid://b2v76ut8nn70a" path="res://Fonts/Ohrenstead.ttf" id="7_tshp8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxcha"]
+size = Vector2(14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5705"]
+atlas = ExtResource("4_2ch1h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlwy1"]
+atlas = ExtResource("4_2ch1h")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pim4"]
+atlas = ExtResource("4_2ch1h")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cuplg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5705")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlwy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pim4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1okn"]
+atlas = ExtResource("7_rt3us")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ntfv"]
+atlas = ExtResource("7_rt3us")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ch1h"]
+atlas = ExtResource("7_rt3us")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_riwf5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1okn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ntfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ch1h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="NPC" type="Node2D" unique_id=391261364]
+script = ExtResource("1_rt3us")
+dialogue_resource = ExtResource("2_i1okn")
+has_dialogue = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1166322163]
+position = Vector2(0, -8)
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=964374194]
+shape = SubResource("RectangleShape2D_xxcha")
+
+[node name="QuestIndicator" type="AnimatedSprite2D" parent="." unique_id=1516278548]
+visible = false
+position = Vector2(0, -18)
+scale = Vector2(0.375, 0.375)
+sprite_frames = SubResource("SpriteFrames_cuplg")
+frame = 2
+frame_progress = 0.56409955
+
+[node name="OverheadBalloon" type="NinePatchRect" parent="." unique_id=1240486882]
+visible = false
+offset_left = -51.0
+offset_top = -67.0
+offset_right = 50.499992
+offset_bottom = -10.0
+texture = ExtResource("5_riwf5")
+region_rect = Rect2(49, 97, 30, 30)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+script = ExtResource("6_r0vkm")
+
+[node name="MarginContainer" type="MarginContainer" parent="OverheadBalloon" unique_id=478646128]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+metadata/_edit_lock_ = true
+
+[node name="Label" type="RichTextLabel" parent="OverheadBalloon/MarginContainer" unique_id=1899238411]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_tshp8")
+bbcode_enabled = true
+text = "I got nothing to say."
+scroll_active = false
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="OverheadBalloon" unique_id=579257612]
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1389744073]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_riwf5")
+autoplay = "default"
+frame_progress = 0.4871649
+
+[connection signal="timeout" from="OverheadBalloon/Timer" to="OverheadBalloon" method="_on_timer_timeout"]

@@ -7,13 +7,20 @@ var on_chase := false
 @export var move_speed := 9.0 * 600.0
 @export var damage := 10
 @export var hp_max := 3
-var hp_cur = hp_max
+signal got_hurt
+var hp_cur = hp_max:
+	set(value):
+		hp_cur = value
+		got_hurt.emit()
 @onready var hurt_timer: Timer = $HurtTimer
+@onready var detection_area: Area2D = $DetectionArea
+@onready var chase_boundaries: Area2D = $ChaseBoundaries
 
 
 @export var throw_force				:= 10.0 * 600.0
 @export var knockback_force_hurt	:= 50.0 * 600.0
 @export var knockback_force_death	:= 10.0 * 600.0
+
 var knockback_speed := Vector2.ZERO
 var throw_speed		:= Vector2.ZERO
 var rotation_speed := 0.0
