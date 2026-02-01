@@ -1,6 +1,7 @@
 extends State
 
 func enter(previous_state_path: String, data := {}) -> void:
+	owner.weapon_charge = 0
 	owner.anim_player.speed_scale = 1.5
 	if owner.direction.x == 1:
 		owner.anim_player.play("ranger_dodge_right")
@@ -17,3 +18,4 @@ func _on_animation_finished(anim:String) -> void:
 	if owner.state_node.state == self:
 		finished.emit("idle")
 		owner.anim_player.speed_scale = 1
+

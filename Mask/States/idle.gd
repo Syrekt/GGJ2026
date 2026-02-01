@@ -11,7 +11,6 @@ func enter(previous_state_path: String, data := {}) -> void:
 func physics_update(delta: float) -> void:
 	owner.move(delta)
 
-	Debugger.printui("owner.velocity: "+str(owner.velocity));
 	if owner.velocity != Vector2.ZERO:
 		finished.emit("walk")
 

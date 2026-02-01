@@ -12,7 +12,7 @@ func take_damage(source,damage:=1) -> void:
 	if sprite.animation == "cut": return
 
 	$ChopSFX.play()
-	if source is Fists: return
+	if source is not Sword: return
 
 	print("hurt")
 	sprite.play("hurt")

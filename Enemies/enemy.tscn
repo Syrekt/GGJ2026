@@ -7,6 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_chnrf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_572h1"]
+resource_local_to_scene = true
 shader = ExtResource("2_47qgu")
 shader_parameter/outline_color = Color(0, 0, 0, 0)
 shader_parameter/width = 1.0
@@ -27,10 +28,13 @@ radius = 148.22281
 
 [node name="Enemy" type="CharacterBody2D" unique_id=855693433]
 collision_layer = 132
+motion_mode = 1
 script = ExtResource("1_3ih25")
+damage = 20
 knockback_force_death = 10000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=47989863]
+visible = false
 shape = SubResource("CircleShape2D_chnrf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=258190751]
@@ -68,14 +72,6 @@ shape = SubResource("CircleShape2D_572h1")
 wait_time = 0.5
 one_shot = true
 autostart = true
-
-[node name="HurtSFX" type="FmodEventEmitter2D" parent="." unique_id=338551618]
-event_name = "event:/EnemyHurtBlade"
-event_guid = "{6c21e698-f721-4f6c-ab33-f8331ae10730}"
-
-[node name="DeathSFX" type="FmodEventEmitter2D" parent="." unique_id=808622493]
-event_name = "event:/EnemyDeathBlade"
-event_guid = "{1ef3cc2f-12ab-4402-be9b-25430d53a201}"
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="ChaseBoundaries" to="." method="_on_chase_boundaries_body_exited"]

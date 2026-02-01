@@ -66,8 +66,6 @@ func _process(delta: float) -> void:
 
 
 	var state_name = state_node.state.name
-	Debugger.printui("knockback_speed: "+str(knockback_speed))
-	Debugger.printui("state: "+str(state_name))
 
 
 
@@ -114,9 +112,9 @@ func take_damage(source:Node2D, damage:=1) -> void:
 	$HurtEvent.play()
 
 	if health.value <= 0:
-		restart_menu.show()
-
-	state_node.state.finished.emit("hurt")
+		state_node.state.finished.emit("death")
+	else:
+		state_node.state.finished.emit("hurt")
 
 
 func update_class() -> void:
@@ -147,36 +145,3 @@ func _on_restart_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
-
-func update_animation() -> void:
-	match mask_class:
-		CLASSES.FIGHTER:
-			if health.value <= 0:
-				if !dead:
-					dead = true
-					match direction:
-						Vector2(1, 1):
-							anim_player.play("fighter_death_dright")
-						Vector2(-1, 1):
-							anim_player.play("fighter_death_dleft")
-						Vector2(1, -1):
-							anim_player.play("fighter_death_uright")
-						Vector2(-1, 1):
-							anim_player.play("fighter_death_uleft")
-			elif velocity == Vector2.ZERO:
-				Debugger.printui("direction: "+str(direction))
-				if direction.x == 1:
-					anim_player.play("fighter_idle_right")
-				else:
-					anim_player.play("fighter_idle_left")
-			else:
-				Debugger.printui("velocity: "+str(velocity))
-				match direction:
-					Vector2(1, 1):
-						anim_player.play("fighter_dright")
-					Vector2(-1, 1):
-						anim_player.play("fighter_dleft")
-					Vector2(1, -1):
-						anim_player.play("fighter_uright")
-					Vector2(-1, -1):
-						anim_player.play("fighter_uleft")

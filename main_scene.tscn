@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dr4mc7oydkdw6" path="res://Map/rock1.png" id="9_7ycvg"]
 [ext_resource type="PackedScene" uid="uid://dfe5ikewvfkdh" path="res://Props/bush.tscn" id="9_qwutr"]
 [ext_resource type="PackedScene" uid="uid://dw0raiovk74mo" path="res://Props/tree2.tscn" id="10_wr18j"]
+[ext_resource type="PackedScene" uid="uid://bjlp25fdgb56y" path="res://Enemies/bomb_enemy.tscn" id="11_671wp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66tet"]
 size = Vector2(16, 10)
@@ -38,7 +39,7 @@ position = Vector2(48, -16)
 position = Vector2(-45, -31)
 
 [node name="Enemy" parent="Node" unique_id=855693433 instance=ExtResource("6_66tet")]
-position = Vector2(-139, 63)
+position = Vector2(-193, 41)
 
 [node name="House1" type="Sprite2D" parent="Node" unique_id=740412688]
 position = Vector2(997, 128)
@@ -67,6 +68,9 @@ position = Vector2(246, -17)
 
 [node name="Tree1" parent="Node" unique_id=1987761876 instance=ExtResource("10_wr18j")]
 position = Vector2(345, -8)
+
+[node name="BombEnemy" parent="Node" unique_id=1074923789 instance=ExtResource("11_671wp")]
+position = Vector2(-4, 98)
 
 [node name="Rock1" type="Sprite2D" parent="." unique_id=78960422]
 position = Vector2(737, -32)

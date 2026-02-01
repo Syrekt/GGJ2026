@@ -28,11 +28,15 @@ func _physics_process(delta: float) -> void:
 			if !hit_list.has(child):
 				child.take_damage(self, damage)
 				hit_list.append(child)
+				if on_fire:
+					$FireHit.play()
 
 		for child in get_overlapping_areas():
 			if !hit_list.has(child):
 				child.take_damage(self, damage)
 				hit_list.append(child)
+				if on_fire:
+					$FireHit.play()
 
 
 
@@ -45,8 +49,11 @@ func input_handle() -> void:
 
 	if Input.is_action_just_released("attack"):
 		mask.weapon_charge.value = 0
-		get_tree().create_timer(1.2).timeout.connect(reset_state)
-		$WhooshSFX.play()
+		get_tree().create_timer(2.4).timeout.connect(reset_state)
+		if on_fire:
+			$FireWooshSFX.play()
+		else:
+			$WooshSFX.play()
 		attacking = true
 		var attack_angle = PI * 0.8
 		hit_list.clear()

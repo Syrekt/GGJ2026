@@ -21,12 +21,19 @@ var rotation_speed := 0.0
 var dead := false
 var grabbed := false
 var thrown := false
+var tween_throw_speed : Tween
 
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var starting_pos := global_position
 @onready var parent_prv = owner
 
 var tween_knockback : Tween
+var throw_damage_dealth := false
+
+signal on_throw
+
+func _process(delta: float) -> void:
+	Debugger.printui("test")
 
 func _physics_process(delta: float) -> void:
 	if grabbed: return
@@ -52,6 +59,17 @@ func _physics_process(delta: float) -> void:
 	velocity += (throw_speed + knockback_speed) * delta
 
 	move_and_slide()
+
+	if thrown:
+		for i in get_slide_collision_count():
+			var collider = get_slide_collision(i).get_collider()
+			print("collider: "+str(collider))
+			throw_speed = Vector2.ZERO
+			if tween_throw_speed: tween_throw_speed.kill()
+			if !throw_damage_dealth && collider.has_method("take_damage"):
+				collider.take_damage(self)
+				throw_damage_dealth = true
+			break
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	mask = body
@@ -106,10 +124,17 @@ func throw(dir:float,speed:float) -> void:
 	grabbed = false
 	throw_speed = Vector2.from_angle(dir + PI/2) * speed
 	thrown = true
-	var tween = create_tween()
-	tween.tween_property(self, "throw_speed", Vector2.ZERO, 1.0)
+	throw_damage_dealth = false
+	on_throw.emit()
+
+	if tween_throw_speed: tween_throw_speed.kill()
+
+	tween_throw_speed = create_tween()
+	tween_throw_speed.tween_property(self, "throw_speed", Vector2.ZERO, 1.0)
 	rotation_speed = 0.2
+
 	var tween_rot = create_tween()
 	tween_rot.tween_property(self, "rotation_speed", 0, 2)
 	tween_rot.tween_property(self, "rotation", 0, 1)
 	tween_rot.tween_callback(set.bind("thrown", false))
+

@@ -15,8 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://y5hobqld7js2" path="res://UI/health_under.png" id="10_omjc0"]
 [ext_resource type="Script" uid="uid://cpospk4dljap8" path="res://Mask/States/hurt.gd" id="10_v251d"]
 [ext_resource type="Texture2D" uid="uid://mt58k6oijr0t" path="res://UI/health_progress.png" id="11_4rbsa"]
-[ext_resource type="Script" uid="uid://dj53v5x1h3sn2" path="res://Mask/states/dodge.gd" id="11_uhyq8"]
+[ext_resource type="Script" uid="uid://dj53v5x1h3sn2" path="res://Mask/States/dodge.gd" id="11_uhyq8"]
 [ext_resource type="Script" uid="uid://bdevra7tti3er" path="res://Mask/health.gd" id="12_4rbsa"]
+[ext_resource type="Script" uid="uid://8i5nf747nbox" path="res://Mask/states/death.gd" id="12_dh0up"]
 [ext_resource type="FontFile" uid="uid://b2v76ut8nn70a" path="res://Fonts/Ohrenstead.ttf" id="14_dpjmy"]
 [ext_resource type="Texture2D" uid="uid://beg180gxn005h" path="res://UI/GUI.png" id="14_qtqal"]
 [ext_resource type="Texture2D" uid="uid://d32onwxpm2fb1" path="res://UI/button_normal.png" id="15_kpqyf"]
@@ -26,6 +27,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cq5j3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dpjmy"]
+resource_local_to_scene = true
 shader = ExtResource("2_acme0")
 shader_parameter/outline_color = Color(0, 0, 0, 0)
 shader_parameter/width = 1.0
@@ -2641,6 +2643,9 @@ script = ExtResource("10_v251d")
 
 [node name="dodge" type="Node" parent="StateMachine" unique_id=573129732]
 script = ExtResource("11_uhyq8")
+
+[node name="death" type="Node" parent="StateMachine" unique_id=541191995]
+script = ExtResource("12_dh0up")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=995212202]
 physics_interpolation_mode = 1
