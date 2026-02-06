@@ -50,7 +50,6 @@ func _physics_process(delta: float) -> void:
 	elif dead || thrown:
 		rotate(rotation_speed)
 	if dead:
-		Debugger.printui("rotation: "+str(rotation))
 		velocity = Vector2.ZERO
 	elif !on_chase || thrown:
 		velocity = Vector2.ZERO

@@ -11,9 +11,6 @@ var grabbed_object : Node2D
 @onready var grab_range: Area2D = $GrabRange
 
 func _process(delta: float) -> void:
-	Debugger.printui("position: "+str(position))
-	Debugger.printui("attacking: "+str(attacking))
-
 	if can_buffer && Input.is_action_just_released("attack"):
 		attack_buffered = true
 

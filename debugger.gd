@@ -24,3 +24,8 @@ func _process(delta: float) -> void:
 	label.visible = OS.is_debug_build()
 	label.text = gui_log
 	gui_log = ""
+
+func unlock_brawler() -> void:
+	Game.get_singleton().brawler_unlocked = true
+func unlock_ranger() -> void:
+	Game.get_singleton().ranger_unlocked = true

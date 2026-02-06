@@ -2,9 +2,12 @@
 Elder Mask: Outsider! We need your help! 
 Elder Mask: You must save our village people who are being poisoned by this invasive plant 
 Elder Mask: This is no ordinary plant, it can move and migrate! 
-Elder Mask: If you help us, we promise to fulfill one wish of yours
+Elder Mask: If you help us, we promise to fulfill one wish of yours!(Actually, game ends)
+Elder Mask: Take this bow with you, you will need it. Press '3' to equip the bow.
+Elder Mask: You can dodge by pressing 'space' while equpping our mask.
+do Debugger.unlock_ranger()
 => END
 
 ~ random
-Pleb Mask: Howdy! | I got nothing to say.
+Pleb Mask: [[Howdy!|I got nothing to say.]]
 => END

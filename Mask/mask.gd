@@ -56,7 +56,7 @@ func _ready() -> void:
 	pcam.follow_target = self
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("teleport") && OS.is_debug_build():
+	if Input.is_action_just_pressed("teleport"):
 		global_position = get_global_mouse_position()
 	if interaction_target:
 		if Input.is_action_just_pressed("interact"):
@@ -131,24 +131,32 @@ func take_damage(source:Node2D, damage:=1) -> void:
 
 
 func update_class() -> void:
-	if weapon:
-		weapon.queue_free()
+	var class_changed := false
 	match mask_class:
 		CLASSES.FIGHTER:
+			if weapon: weapon.queue_free()
 			weapon = sword_resource.instantiate()
 			class_string = "fighter"
+			class_changed = true
 		CLASSES.RANGER:
-			weapon = bow_resource.instantiate()
-			class_string = "ranger"
+			if Game.get_singleton().ranger_unlocked:
+				if weapon: weapon.queue_free()
+				weapon = bow_resource.instantiate()
+				class_string = "ranger"
+				class_changed = true
 		CLASSES.BRAWLER:
-			weapon = fists_resource.instantiate()
-			class_string = "brawler"
+			if Game.get_singleton().brawler_unlocked:
+				if weapon: weapon.queue_free()
+				weapon = fists_resource.instantiate()
+				class_string = "brawler"
+				class_changed = true
 			
-	mask_frame.play(class_string)
-	weapon.mask = self
-	add_child(weapon)
+	if class_changed:
+		mask_frame.play(class_string)
+		weapon.mask = self
+		add_child(weapon)
 
-	state_node.state.enter(state_node.state.name)
+		state_node.state.enter(state_node.state.name)
 
 func _on_npc_detector_area_entered(area: Area2D) -> void:
 	interaction_target = area.owner

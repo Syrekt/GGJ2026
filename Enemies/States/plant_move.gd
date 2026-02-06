@@ -1,7 +1,6 @@
 extends State
 
 var target_position : Vector2
-@onready var timer := $Timer
 
 func enter(previous_state_path: String, data := {}) -> void:
 	owner.sprite.play("move")
@@ -18,15 +17,11 @@ func exit() -> void:
 	owner.velocity = Vector2.ZERO
 
 
-func update(_delta: float) -> void:
-	Debugger.printui("timer.time_left: "+str(timer.time_left));
-
 func physics_update(_delta: float) -> void:
 	owner.velocity = owner.global_position.direction_to(target_position) * owner.move_speed * _delta
 
 
 func _on_timer_timeout() -> void:
-	print("timer timeout")
 	if owner.detection_area.has_overlapping_bodies():
 		print("Player detected, keep moving")
 		finished.emit("move")

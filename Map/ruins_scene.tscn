@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://d01nmypjsdlom" path="res://Props/bush3.tscn" id="9_mj88o"]
 [ext_resource type="PackedScene" uid="uid://b4qkf6p0mj80u" path="res://NPCs/ruins_elder.tscn" id="10_yln5k"]
 [ext_resource type="PackedScene" uid="uid://dsjdt23060tbx" path="res://NPCs/ruins_pleb.tscn" id="11_kwkut"]
+[ext_resource type="PackedScene" uid="uid://c5b4p6t5syloe" path="res://Map/stone_wall.tscn" id="12_o3uyv"]
 [ext_resource type="PackedScene" uid="uid://6e4v5fmji4j1" path="res://Map/map_switch.tscn" id="18_nrf8v"]
 
 [node name="Node" type="Node2D" unique_id=2053476378]
@@ -26,7 +27,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAQABAAcAAAAAAAEAAQABAAcAAAAAAAIAAQABAAc
 tile_set = ExtResource("2_4i25c")
 
 [node name="RuinsPath" type="TileMapLayer" parent="." unique_id=1320537312]
-tile_map_data = PackedByteArray("AAAKABsAAQACAAcAAAAKABwAAQACAAgAAAAKAB0AAQAEAAgAAAAKAB4AAQACAAgAAAAKAB8AAQAEAAgAAAAKACAAAQAEAAgAAAAKACEAAQACAAgAAAAKACIAAQACAAgAAAAKACMAAQAIAAcAAAAKACQAAQAEAAgAAAAKACUAAQACAAgAAAAKACYAAQAEAAgAAAAKACcAAQAEAAgAAAAKACgAAQACAAgAAAAKACkAAQAEAAgAAAAKACoAAQAEAAgAAAAKACsAAQAEAAgAAAAKACwAAQAEAAgAAAAKAC0AAQACAAgAAAAKAC4AAQAEAAgAAAAKAC8AAQAEAAgAAAAKADAAAQACAAgAAAAKADEAAQACAAgAAAAKADIAAQAEAAkAAAALABsAAQADAAkAAAALACMAAQADAAkAAAAMABAAAQACAAcAAAAMABEAAQACAAgAAAAMABIAAQACAAgAAAAMABMAAQAEAAgAAAAMABQAAQACAAgAAAAMABUAAQACAAgAAAAMABYAAQACAAgAAAAMABcAAQAEAAgAAAAMABgAAQACAAgAAAAMABkAAQACAAgAAAAMABoAAQAIAAcAAAAMABsAAQAEAAkAAAAMACMAAQADAAkAAAANABAAAQADAAkAAAANABoAAQADAAcAAAANACMAAQADAAkAAAAOABAAAQADAAcAAAAOABoAAQADAAcAAAAOACMAAQADAAcAAAAPABAAAQADAAcAAAAPABoAAQADAAkAAAAPACMAAQADAAcAAAAQABAAAQADAAkAAAAQABoAAQADAAkAAAAQACMAAQADAAcAAAARABAAAQADAAkAAAARABkAAQACAAcAAAARABoAAQAEAAkAAAARACMAAQADAAkAAAASABAAAQADAAcAAAASABkAAQADAAcAAAASACMAAQADAAkAAAATABAAAQADAAkAAAATABkAAQADAAkAAAATACMAAQADAAkAAAAUABAAAQADAAcAAAAUABkAAQADAAkAAAAUACMAAQADAAkAAAAVABAAAQADAAkAAAAVABkAAQADAAkAAAAVACMAAQADAAkAAAAWABAAAQADAAkAAAAWABkAAQADAAkAAAAWACMAAQAEAAkAAAAXABAAAQADAAcAAAAXABkAAQADAAkAAAAYABAAAQADAAkAAAAYABkAAQADAAkAAAAZABAAAQADAAkAAAAZABkAAQADAAcAAAAaABAAAQADAAkAAAAaABkAAQADAAkAAAAbABAAAQADAAcAAAAbABkAAQADAAkAAAAcABAAAQADAAcAAAAcABkAAQADAAcAAAAdABAAAQADAAkAAAAdABkAAQADAAcAAAAeABAAAQADAAcAAAAeABkAAQADAAcAAAAfABAAAQADAAcAAAAfABkAAQADAAkAAAAgABAAAQADAAcAAAAgABkAAQADAAcAAAAhABAAAQADAAkAAAAhABkAAQADAAkAAAAiABAAAQAEAAkAAAAiABkAAQADAAkAAAAjABkAAQADAAkAAAAkABkAAQADAAkAAAAlABkAAQAEAAcAAAAlABoAAQACAAkAAAAmABoAAQADAAkAAAAnABoAAQADAAcAAAAoABoAAQADAAcAAAApABoAAQADAAcAAAAqABoAAQADAAkAAAArABoAAQADAAcAAAA=")
+tile_map_data = PackedByteArray("AAAKABsAAQACAAcAAAAKABwAAQACAAgAAAAKAB0AAQAEAAgAAAAKAB4AAQACAAgAAAAKAB8AAQAEAAgAAAAKACAAAQAEAAgAAAAKACEAAQACAAgAAAAKACIAAQACAAgAAAAKACMAAQAIAAcAAAAKACQAAQAEAAgAAAAKACUAAQACAAgAAAAKACYAAQAEAAgAAAAKACcAAQAEAAgAAAAKACgAAQACAAgAAAAKACkAAQAEAAgAAAAKACoAAQAEAAgAAAAKACsAAQAEAAgAAAAKACwAAQAEAAgAAAAKAC0AAQACAAgAAAAKAC4AAQAEAAgAAAAKAC8AAQAEAAgAAAAKADAAAQACAAgAAAAKADEAAQACAAgAAAAKADIAAQACAAgAAAALABsAAQADAAkAAAALACMAAQADAAkAAAAMABAAAQACAAcAAAAMABEAAQACAAgAAAAMABIAAQACAAgAAAAMABMAAQAEAAgAAAAMABQAAQACAAgAAAAMABUAAQACAAgAAAAMABYAAQACAAgAAAAMABcAAQAEAAgAAAAMABgAAQACAAgAAAAMABkAAQACAAgAAAAMABoAAQAIAAcAAAAMABsAAQAEAAkAAAAMACMAAQADAAkAAAANABAAAQADAAkAAAANABoAAQADAAcAAAANACMAAQADAAkAAAAOABAAAQADAAcAAAAOABoAAQADAAcAAAAOACMAAQADAAcAAAAPABAAAQADAAcAAAAPABoAAQADAAkAAAAPACMAAQADAAcAAAAQABAAAQADAAkAAAAQABoAAQADAAkAAAAQACMAAQADAAcAAAARABAAAQADAAkAAAARABkAAQACAAcAAAARABoAAQAEAAkAAAARACMAAQADAAkAAAASABAAAQADAAcAAAASABkAAQADAAcAAAASACMAAQADAAkAAAATABAAAQADAAkAAAATABkAAQADAAkAAAATACMAAQADAAkAAAAUABAAAQADAAcAAAAUABkAAQADAAkAAAAUACMAAQADAAkAAAAVABAAAQADAAkAAAAVABkAAQADAAkAAAAVACMAAQADAAkAAAAWABAAAQADAAkAAAAWABkAAQADAAkAAAAWACMAAQAEAAkAAAAXABAAAQADAAcAAAAXABkAAQADAAkAAAAYABAAAQADAAkAAAAYABkAAQADAAkAAAAZABAAAQADAAkAAAAZABkAAQADAAcAAAAaABAAAQADAAkAAAAaABkAAQADAAkAAAAbABAAAQADAAcAAAAbABkAAQADAAkAAAAcABAAAQADAAcAAAAcABkAAQADAAcAAAAdABAAAQADAAkAAAAdABkAAQADAAcAAAAeABAAAQADAAcAAAAeABkAAQADAAcAAAAfABAAAQADAAcAAAAfABkAAQADAAkAAAAgABAAAQADAAcAAAAgABkAAQADAAcAAAAhABAAAQADAAkAAAAhABkAAQADAAkAAAAiABAAAQAEAAkAAAAiABkAAQADAAkAAAAjABkAAQADAAkAAAAkABkAAQADAAkAAAAlABkAAQAEAAcAAAAlABoAAQACAAkAAAAmABoAAQADAAkAAAAnABoAAQADAAcAAAAoABoAAQADAAcAAAApABoAAQADAAcAAAAqABoAAQADAAkAAAArABoAAQADAAcAAAA=")
 tile_set = ExtResource("2_4i25c")
 
 [node name="Order" type="Node2D" parent="." unique_id=1839883156]
@@ -119,8 +120,65 @@ position = Vector2(295, 616)
 [node name="Tree14" parent="Order" unique_id=1219320988 instance=ExtResource("5_karm1")]
 position = Vector2(347, 482)
 
-[node name="BombEnemy" parent="Order" unique_id=1074923789 instance=ExtResource("6_t074x")]
+[node name="BombEnemy13" parent="Order" unique_id=1074923789 instance=ExtResource("6_t074x")]
+position = Vector2(273, 190)
+
+[node name="BombEnemy14" parent="Order" unique_id=1122897996 instance=ExtResource("6_t074x")]
+position = Vector2(257, 158)
+
+[node name="BombEnemy15" parent="Order" unique_id=1480283115 instance=ExtResource("6_t074x")]
+position = Vector2(239, 206)
+
+[node name="BombEnemy16" parent="Order" unique_id=1879047092 instance=ExtResource("6_t074x")]
+position = Vector2(328, 166)
+
+[node name="BombEnemy17" parent="Order" unique_id=1117785527 instance=ExtResource("6_t074x")]
+position = Vector2(1255, 591)
+
+[node name="BombEnemy18" parent="Order" unique_id=989040030 instance=ExtResource("6_t074x")]
+position = Vector2(1239, 559)
+
+[node name="BombEnemy19" parent="Order" unique_id=1198475082 instance=ExtResource("6_t074x")]
+position = Vector2(1221, 607)
+
+[node name="BombEnemy20" parent="Order" unique_id=183487763 instance=ExtResource("6_t074x")]
+position = Vector2(1310, 567)
+
+[node name="BombEnemy21" parent="Order" unique_id=247914768 instance=ExtResource("6_t074x")]
+position = Vector2(1139, 1247)
+
+[node name="BombEnemy22" parent="Order" unique_id=1348967974 instance=ExtResource("6_t074x")]
+position = Vector2(1123, 1215)
+
+[node name="BombEnemy23" parent="Order" unique_id=926244260 instance=ExtResource("6_t074x")]
+position = Vector2(1194, 1223)
+
+[node name="BombEnemy24" parent="Order" unique_id=509309971 instance=ExtResource("6_t074x")]
+position = Vector2(1228, 1246)
+
+[node name="BombEnemy25" parent="Order" unique_id=2066857322 instance=ExtResource("6_t074x")]
+position = Vector2(1344, 590)
+
+[node name="BombEnemy26" parent="Order" unique_id=855368223 instance=ExtResource("6_t074x")]
+position = Vector2(362, 189)
+
+[node name="BombEnemy" parent="Order" unique_id=1257262006 instance=ExtResource("6_t074x")]
 position = Vector2(861, 259)
+
+[node name="BombEnemy29" parent="Order" unique_id=1341483065 instance=ExtResource("6_t074x")]
+position = Vector2(877, 1400)
+
+[node name="BombEnemy30" parent="Order" unique_id=1600096374 instance=ExtResource("6_t074x")]
+position = Vector2(756, 1447)
+
+[node name="BombEnemy27" parent="Order" unique_id=2116784301 instance=ExtResource("6_t074x")]
+position = Vector2(777, 1322)
+
+[node name="BombEnemy28" parent="Order" unique_id=846085384 instance=ExtResource("6_t074x")]
+position = Vector2(37, 1389)
+
+[node name="BombEnemy12" parent="Order" unique_id=1811675765 instance=ExtResource("6_t074x")]
+position = Vector2(1105, 1263)
 
 [node name="BombEnemy2" parent="Order" unique_id=755402887 instance=ExtResource("6_t074x")]
 position = Vector2(845, 227)
@@ -152,57 +210,118 @@ position = Vector2(79, 942)
 [node name="BombEnemy11" parent="Order" unique_id=1193645364 instance=ExtResource("6_t074x")]
 position = Vector2(81, 896)
 
-[node name="MapSwitch" parent="." unique_id=702797660 instance=ExtResource("18_nrf8v")]
-position = Vector2(324, 1588)
-previous_map = 2
+[node name="Bush" parent="Order" unique_id=866987035 instance=ExtResource("9_mj88o")]
+position = Vector2(553, 1055)
 
-[node name="MapSwitch2" parent="." unique_id=338875860 instance=ExtResource("18_nrf8v")]
-position = Vector2(1385, 849)
-scale = Vector2(1, 3.5169582)
+[node name="Bush2" parent="Order" unique_id=428877520 instance=ExtResource("9_mj88o")]
+position = Vector2(676, 1003)
+
+[node name="Bush3" parent="Order" unique_id=169964964 instance=ExtResource("9_mj88o")]
+position = Vector2(465, 354)
+
+[node name="Bush7" parent="Order" unique_id=1436285546 instance=ExtResource("9_mj88o")]
+position = Vector2(945, 450)
+
+[node name="Bush8" parent="Order" unique_id=1071011458 instance=ExtResource("9_mj88o")]
+position = Vector2(298, 711)
+
+[node name="Bush9" parent="Order" unique_id=1069474083 instance=ExtResource("9_mj88o")]
+position = Vector2(303, 658)
+
+[node name="Bush4" parent="Order" unique_id=426227336 instance=ExtResource("9_mj88o")]
+position = Vector2(1123, 938)
+
+[node name="Bush5" parent="Order" unique_id=2004497411 instance=ExtResource("9_mj88o")]
+position = Vector2(1129, 1016)
+
+[node name="Bush6" parent="Order" unique_id=904384114 instance=ExtResource("9_mj88o")]
+position = Vector2(1184, 970)
+
+[node name="NPC" parent="Order" unique_id=391261364 instance=ExtResource("10_yln5k")]
+position = Vector2(551, 522)
+
+[node name="NPC2" parent="Order" unique_id=1563862865 instance=ExtResource("11_kwkut")]
+position = Vector2(523, 800)
+
+[node name="NPC3" parent="Order" unique_id=105126798 instance=ExtResource("11_kwkut")]
+position = Vector2(833, 798)
+
+[node name="StoneWall" parent="Order" unique_id=1403999073 instance=ExtResource("12_o3uyv")]
+position = Vector2(1359, 929)
+
+[node name="StoneWall2" parent="Order" unique_id=1612814697 instance=ExtResource("12_o3uyv")]
+position = Vector2(1391, 929)
+
+[node name="StoneWall3" parent="Order" unique_id=351794831 instance=ExtResource("12_o3uyv")]
+position = Vector2(1306, 928)
+
+[node name="StoneWall4" parent="Order" unique_id=1542292561 instance=ExtResource("12_o3uyv")]
+position = Vector2(1306, 917)
+
+[node name="StoneWall5" parent="Order" unique_id=1920018940 instance=ExtResource("12_o3uyv")]
+position = Vector2(1306, 906)
+
+[node name="StoneWall6" parent="Order" unique_id=1061446120 instance=ExtResource("12_o3uyv")]
+position = Vector2(1306, 895)
+
+[node name="StoneWall7" parent="Order" unique_id=1811786791 instance=ExtResource("12_o3uyv")]
+position = Vector2(1306, 884)
+
+[node name="StoneWall8" parent="Order" unique_id=1906875477 instance=ExtResource("12_o3uyv")]
+position = Vector2(1306, 873)
+
+[node name="StoneWall9" parent="Order" unique_id=1356220856 instance=ExtResource("12_o3uyv")]
+position = Vector2(1306, 862)
+
+[node name="StoneWall15" parent="Order" unique_id=660040390 instance=ExtResource("12_o3uyv")]
+position = Vector2(1306, 851)
+
+[node name="StoneWall16" parent="Order" unique_id=1822908582 instance=ExtResource("12_o3uyv")]
+position = Vector2(1306, 841)
+
+[node name="StoneWall17" parent="Order" unique_id=524122827 instance=ExtResource("12_o3uyv")]
+position = Vector2(1306, 830)
+
+[node name="StoneWall18" parent="Order" unique_id=1661411660 instance=ExtResource("12_o3uyv")]
+position = Vector2(1306, 825)
+
+[node name="StoneWall10" parent="Order" unique_id=792202748 instance=ExtResource("12_o3uyv")]
+position = Vector2(1391, 826)
+
+[node name="StoneWall11" parent="Order" unique_id=1704299548 instance=ExtResource("12_o3uyv")]
+position = Vector2(1359, 826)
+
+[node name="StoneWall12" parent="Order" unique_id=1771598763 instance=ExtResource("12_o3uyv")]
+position = Vector2(1359, 826)
+
+[node name="StoneWall13" parent="Order" unique_id=1841948822 instance=ExtResource("12_o3uyv")]
+position = Vector2(1327, 826)
+
+[node name="StoneWall14" parent="Order" unique_id=390402823 instance=ExtResource("12_o3uyv")]
+position = Vector2(1327, 929)
+
+[node name="BombEnemy32" parent="Order" unique_id=1632560838 instance=ExtResource("6_t074x")]
+position = Vector2(339, 1192)
+
+[node name="BombEnemy31" parent="Order" unique_id=24988246 instance=ExtResource("6_t074x")]
+position = Vector2(647, 1366)
+
+[node name="MapSwitch" parent="." unique_id=1789298704 instance=ExtResource("18_nrf8v")]
+position = Vector2(324, 1588)
+target_scene = "res://Map/village_scene.tscn"
 previous_map = 2
 
 [node name="PlayerSpawn2" parent="." unique_id=1374333075 instance=ExtResource("5_486nw")]
-position = Vector2(313, 1522)
+position = Vector2(334, 1488)
 previous_map = 1
 
 [node name="PlayerSpawn3" parent="." unique_id=1553051546 instance=ExtResource("5_486nw")]
 position = Vector2(1270, 842)
 previous_map = 3
 
-[node name="Bush" parent="." unique_id=866987035 instance=ExtResource("9_mj88o")]
-position = Vector2(553, 1055)
-
-[node name="Bush2" parent="." unique_id=428877520 instance=ExtResource("9_mj88o")]
-position = Vector2(676, 1003)
-
-[node name="Bush3" parent="." unique_id=169964964 instance=ExtResource("9_mj88o")]
-position = Vector2(465, 354)
-
-[node name="Bush7" parent="." unique_id=1436285546 instance=ExtResource("9_mj88o")]
-position = Vector2(945, 450)
-
-[node name="Bush8" parent="." unique_id=1071011458 instance=ExtResource("9_mj88o")]
-position = Vector2(298, 711)
-
-[node name="Bush9" parent="." unique_id=1069474083 instance=ExtResource("9_mj88o")]
-position = Vector2(303, 658)
-
-[node name="Bush4" parent="." unique_id=426227336 instance=ExtResource("9_mj88o")]
-position = Vector2(1123, 938)
-
-[node name="Bush5" parent="." unique_id=2004497411 instance=ExtResource("9_mj88o")]
-position = Vector2(1129, 1016)
-
-[node name="Bush6" parent="." unique_id=904384114 instance=ExtResource("9_mj88o")]
-position = Vector2(1184, 970)
-
-[node name="NPC" parent="." unique_id=391261364 instance=ExtResource("10_yln5k")]
-position = Vector2(551, 522)
-
-[node name="NPC2" parent="." unique_id=1563862865 instance=ExtResource("11_kwkut")]
-position = Vector2(523, 800)
-
-[node name="NPC3" parent="." unique_id=105126798 instance=ExtResource("11_kwkut")]
-position = Vector2(833, 798)
+[node name="MapSwitch3" parent="." unique_id=2120614368 instance=ExtResource("18_nrf8v")]
+position = Vector2(1387, 853)
+target_scene = "res://Map/forest_scene.tscn"
+previous_map = 2
 
 [editable path="Order/Ruins2"]

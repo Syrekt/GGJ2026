@@ -4,8 +4,11 @@ var mask : Mask
 enum MAPS { NONE, VILLAGE, RUINS, FOREST }
 var previous_map : MAPS = MAPS.NONE
 @onready var canvas_modulate: CanvasModulate = $CanvasModulate
+@onready var bgm: FmodEventEmitter2D = $BGM
 
 var player_health : int
+var brawler_unlocked := false
+var ranger_unlocked := false
 
 var canvas_tween : Tween
 
@@ -25,8 +28,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_pressed() && event is InputEventKey:
 		match event.keycode:
 			KEY_R:
-				if OS.is_debug_build():
-					restart_game()
+				restart_game()
 
 func restart_game() -> void:
 	for child in get_children():
@@ -45,11 +47,12 @@ func switch_scene(from_map:MAPS,target_scene:PackedScene) -> void:
 	canvas_modulate.color = Color(0, 0, 0, 1)
 
 	canvas_tween.tween_property(canvas_modulate, "color", Color(1, 1, 1, 1), 1.0)
+	print_stack()
 	
 
 func _do_scene_switch(target_scene: PackedScene) -> void:
 	for child in get_children():
-		if child is Node2D && child != canvas_modulate:
+		if child is Node2D && child != canvas_modulate && child != bgm:
 			child.queue_free()
 
 	var new_scene := target_scene.instantiate()

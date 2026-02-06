@@ -19,6 +19,7 @@ func _on_scene_ready() -> void:
 
 
 		var order_node = get_tree().current_scene.find_child("Order", true, false)
+		print("Create mask")
 		if order_node:
 			order_node.add_child(mask)
 		else:

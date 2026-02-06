@@ -7,6 +7,7 @@ var balloon = null
 
 @export var has_dialogue := false
 
+
 func _ready() -> void:
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended);
 

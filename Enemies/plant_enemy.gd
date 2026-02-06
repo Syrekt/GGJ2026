@@ -29,7 +29,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func shoot() -> void:
-	print("Shoot")
 	if !mask: 
 		print("Can't find Mask")
 		mask = Game.get_singleton().mask

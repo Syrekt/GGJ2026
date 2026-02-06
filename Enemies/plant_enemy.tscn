@@ -328,11 +328,12 @@ shape = SubResource("CircleShape2D_v8d3k")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=485866446]
 material = SubResource("ShaderMaterial_6u6t2")
 sprite_frames = SubResource("SpriteFrames_ysmvx")
-animation = &"dead"
+animation = &"idle"
 autoplay = "idle"
+frame = 1
+frame_progress = 0.60059506
 
 [node name="ShootSFX" type="FmodEventEmitter2D" parent="." unique_id=108588258]
-event_guid = "{00000000-0000-0000-0000-000000000000}"
 preload_event = false
 
 [node name="StateMachine" type="Node" parent="." unique_id=87642543]
@@ -346,14 +347,9 @@ script = ExtResource("8_xte70")
 
 [node name="ShootTimer" type="Timer" parent="StateMachine/shoot" unique_id=443758486]
 one_shot = true
-autostart = true
 
 [node name="move" type="Node" parent="StateMachine" unique_id=1819379257]
 script = ExtResource("9_cj1bv")
-
-[node name="Timer" type="Timer" parent="StateMachine/move" unique_id=1442695731]
-one_shot = true
-autostart = true
 
 [node name="hurt" type="Node" parent="StateMachine" unique_id=1135355169]
 script = ExtResource("10_iwi7w")
@@ -371,5 +367,3 @@ script = ExtResource("11_7itcj")
 wait_time = 0.5
 one_shot = true
 autostart = true
-
-[connection signal="timeout" from="StateMachine/move/Timer" to="StateMachine/move" method="_on_timer_timeout"]

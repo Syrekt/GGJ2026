@@ -45,7 +45,7 @@ func _transition_to_next_state(target_state_path: String, data: Dictionary = {})
 		return
 
 	#if owner.debug:
-	#	print(owner.name,":", state.name, " -> ", target_state_path)
+	print(owner.name,":", state.name, " -> ", target_state_path)
 	if !has_node(target_state_path):
 		printerr(owner.name + ": Trying to transition to state " + target_state_path + " but it does not exist.")
 		return
