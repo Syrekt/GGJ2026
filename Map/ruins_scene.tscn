@@ -56,95 +56,95 @@ position = Vector2(803, 749)
 [node name="Ruins" parent="Order" unique_id=341677797 instance=ExtResource("6_oi3qw")]
 position = Vector2(550, 487)
 
+[node name="BombEnemy14" parent="Order" unique_id=1122897996 instance=ExtResource("6_t074x")]
+position = Vector2(257, 158)
+
+[node name="BombEnemy15" parent="Order" unique_id=1480283115 instance=ExtResource("6_t074x")]
+position = Vector2(239, 206)
+
+[node name="BombEnemy16" parent="Order" unique_id=1879047092 instance=ExtResource("6_t074x")]
+position = Vector2(328, 166)
+
+[node name="BombEnemy17" parent="Order" unique_id=1117785527 instance=ExtResource("6_t074x")]
+position = Vector2(1255, 591)
+
+[node name="BombEnemy18" parent="Order" unique_id=989040030 instance=ExtResource("6_t074x")]
+position = Vector2(1239, 559)
+
+[node name="BombEnemy19" parent="Order" unique_id=1198475082 instance=ExtResource("6_t074x")]
+position = Vector2(1221, 607)
+
+[node name="BombEnemy20" parent="Order" unique_id=183487763 instance=ExtResource("6_t074x")]
+position = Vector2(1310, 567)
+
+[node name="BombEnemy21" parent="Order" unique_id=247914768 instance=ExtResource("6_t074x")]
+position = Vector2(1139, 1247)
+
+[node name="BombEnemy22" parent="Order" unique_id=1348967974 instance=ExtResource("6_t074x")]
+position = Vector2(1123, 1215)
+
+[node name="BombEnemy23" parent="Order" unique_id=926244260 instance=ExtResource("6_t074x")]
+position = Vector2(1194, 1223)
+
+[node name="BombEnemy24" parent="Order" unique_id=509309971 instance=ExtResource("6_t074x")]
+position = Vector2(1228, 1246)
+
+[node name="BombEnemy25" parent="Order" unique_id=2066857322 instance=ExtResource("6_t074x")]
+position = Vector2(1344, 590)
+
+[node name="BombEnemy26" parent="Order" unique_id=855368223 instance=ExtResource("6_t074x")]
+position = Vector2(362, 189)
+
+[node name="BombEnemy" parent="Order" unique_id=1257262006 instance=ExtResource("6_t074x")]
+position = Vector2(861, 259)
+
+[node name="BombEnemy29" parent="Order" unique_id=1341483065 instance=ExtResource("6_t074x")]
+position = Vector2(877, 1400)
+
+[node name="BombEnemy30" parent="Order" unique_id=1600096374 instance=ExtResource("6_t074x")]
+position = Vector2(756, 1447)
+
+[node name="BombEnemy27" parent="Order" unique_id=2116784301 instance=ExtResource("6_t074x")]
+position = Vector2(777, 1322)
+
+[node name="BombEnemy28" parent="Order" unique_id=846085384 instance=ExtResource("6_t074x")]
+position = Vector2(37, 1389)
+
+[node name="BombEnemy12" parent="Order" unique_id=1811675765 instance=ExtResource("6_t074x")]
+position = Vector2(1105, 1263)
+
+[node name="BombEnemy2" parent="Order" unique_id=755402887 instance=ExtResource("6_t074x")]
+position = Vector2(845, 227)
+
+[node name="BombEnemy3" parent="Order" unique_id=1543879303 instance=ExtResource("6_t074x")]
+position = Vector2(827, 275)
+
+[node name="BombEnemy4" parent="Order" unique_id=365002154 instance=ExtResource("6_t074x")]
+position = Vector2(916, 235)
+
+[node name="BombEnemy5" parent="Order" unique_id=1422072723 instance=ExtResource("6_t074x")]
+position = Vector2(950, 258)
+
+[node name="BombEnemy6" parent="Order" unique_id=883341830 instance=ExtResource("6_t074x")]
+position = Vector2(169, 466)
+
+[node name="BombEnemy7" parent="Order" unique_id=1411567796 instance=ExtResource("6_t074x")]
+position = Vector2(137, 492)
+
+[node name="BombEnemy8" parent="Order" unique_id=987318982 instance=ExtResource("6_t074x")]
+position = Vector2(139, 446)
+
+[node name="BombEnemy9" parent="Order" unique_id=290860586 instance=ExtResource("6_t074x")]
+position = Vector2(111, 916)
+
+[node name="BombEnemy10" parent="Order" unique_id=523370724 instance=ExtResource("6_t074x")]
+position = Vector2(79, 942)
+
+[node name="BombEnemy11" parent="Order" unique_id=1193645364 instance=ExtResource("6_t074x")]
+position = Vector2(81, 896)
+
 [node name="BombEnemy13" parent="Order" unique_id=1074923789 instance=ExtResource("6_t074x")]
 position = Vector2(273, 190)
-
-[node name="BombEnemy14" parent="Order/BombEnemy13" unique_id=1122897996 instance=ExtResource("6_t074x")]
-position = Vector2(-16, -32)
-
-[node name="BombEnemy15" parent="Order/BombEnemy13" unique_id=1480283115 instance=ExtResource("6_t074x")]
-position = Vector2(-34, 16)
-
-[node name="BombEnemy16" parent="Order/BombEnemy13" unique_id=1879047092 instance=ExtResource("6_t074x")]
-position = Vector2(55, -24)
-
-[node name="BombEnemy17" parent="Order/BombEnemy13" unique_id=1117785527 instance=ExtResource("6_t074x")]
-position = Vector2(982, 401)
-
-[node name="BombEnemy18" parent="Order/BombEnemy13" unique_id=989040030 instance=ExtResource("6_t074x")]
-position = Vector2(966, 369)
-
-[node name="BombEnemy19" parent="Order/BombEnemy13" unique_id=1198475082 instance=ExtResource("6_t074x")]
-position = Vector2(948, 417)
-
-[node name="BombEnemy20" parent="Order/BombEnemy13" unique_id=183487763 instance=ExtResource("6_t074x")]
-position = Vector2(1037, 377)
-
-[node name="BombEnemy21" parent="Order/BombEnemy13" unique_id=247914768 instance=ExtResource("6_t074x")]
-position = Vector2(866, 1057)
-
-[node name="BombEnemy22" parent="Order/BombEnemy13" unique_id=1348967974 instance=ExtResource("6_t074x")]
-position = Vector2(850, 1025)
-
-[node name="BombEnemy23" parent="Order/BombEnemy13" unique_id=926244260 instance=ExtResource("6_t074x")]
-position = Vector2(921, 1033)
-
-[node name="BombEnemy24" parent="Order/BombEnemy13" unique_id=509309971 instance=ExtResource("6_t074x")]
-position = Vector2(955, 1056)
-
-[node name="BombEnemy25" parent="Order/BombEnemy13" unique_id=2066857322 instance=ExtResource("6_t074x")]
-position = Vector2(1071, 400)
-
-[node name="BombEnemy26" parent="Order/BombEnemy13" unique_id=855368223 instance=ExtResource("6_t074x")]
-position = Vector2(89, -1)
-
-[node name="BombEnemy" parent="Order/BombEnemy13" unique_id=1257262006 instance=ExtResource("6_t074x")]
-position = Vector2(588, 69)
-
-[node name="BombEnemy29" parent="Order/BombEnemy13" unique_id=1341483065 instance=ExtResource("6_t074x")]
-position = Vector2(604, 1210)
-
-[node name="BombEnemy30" parent="Order/BombEnemy13" unique_id=1600096374 instance=ExtResource("6_t074x")]
-position = Vector2(483, 1257)
-
-[node name="BombEnemy27" parent="Order/BombEnemy13" unique_id=2116784301 instance=ExtResource("6_t074x")]
-position = Vector2(504, 1132)
-
-[node name="BombEnemy28" parent="Order/BombEnemy13" unique_id=846085384 instance=ExtResource("6_t074x")]
-position = Vector2(-236, 1199)
-
-[node name="BombEnemy12" parent="Order/BombEnemy13" unique_id=1811675765 instance=ExtResource("6_t074x")]
-position = Vector2(832, 1073)
-
-[node name="BombEnemy2" parent="Order/BombEnemy13" unique_id=755402887 instance=ExtResource("6_t074x")]
-position = Vector2(572, 37)
-
-[node name="BombEnemy3" parent="Order/BombEnemy13" unique_id=1543879303 instance=ExtResource("6_t074x")]
-position = Vector2(554, 85)
-
-[node name="BombEnemy4" parent="Order/BombEnemy13" unique_id=365002154 instance=ExtResource("6_t074x")]
-position = Vector2(643, 45)
-
-[node name="BombEnemy5" parent="Order/BombEnemy13" unique_id=1422072723 instance=ExtResource("6_t074x")]
-position = Vector2(677, 68)
-
-[node name="BombEnemy6" parent="Order/BombEnemy13" unique_id=883341830 instance=ExtResource("6_t074x")]
-position = Vector2(-104, 276)
-
-[node name="BombEnemy7" parent="Order/BombEnemy13" unique_id=1411567796 instance=ExtResource("6_t074x")]
-position = Vector2(-136, 302)
-
-[node name="BombEnemy8" parent="Order/BombEnemy13" unique_id=987318982 instance=ExtResource("6_t074x")]
-position = Vector2(-134, 256)
-
-[node name="BombEnemy9" parent="Order/BombEnemy13" unique_id=290860586 instance=ExtResource("6_t074x")]
-position = Vector2(-162, 726)
-
-[node name="BombEnemy10" parent="Order/BombEnemy13" unique_id=523370724 instance=ExtResource("6_t074x")]
-position = Vector2(-194, 752)
-
-[node name="BombEnemy11" parent="Order/BombEnemy13" unique_id=1193645364 instance=ExtResource("6_t074x")]
-position = Vector2(-192, 706)
 
 [node name="Bush" parent="Order" unique_id=866987035 instance=ExtResource("9_mj88o")]
 position = Vector2(553, 1055)
