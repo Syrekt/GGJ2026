@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://censw3w53gldn"
-path="res://.godot/imported/PhantomCameraBtnPrimaryDefault.png-fcf3696b583a82b1078609a5bfd648f5.ctex"
+uid="uid://7psks5b0bg2u"
+path="res://.godot/imported/map3_tree2.png-35deaa9e3fa88b929f2454b851c0e27a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/phantom_camera/assets/PhantomCameraBtnPrimaryDefault.png"
-dest_files=["res://.godot/imported/PhantomCameraBtnPrimaryDefault.png-fcf3696b583a82b1078609a5bfd648f5.ctex"]
+source_file="res://map3_tree2.png"
+dest_files=["res://.godot/imported/map3_tree2.png-35deaa9e3fa88b929f2454b851c0e27a.ctex"]
 
 [params]
 

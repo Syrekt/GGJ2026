@@ -2690,7 +2690,7 @@ script = ExtResource("12_dh0up")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=995212202]
 physics_interpolation_mode = 1
 top_level = true
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=490921370]
@@ -2701,7 +2701,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="." unique_id=546179078]
 script = ExtResource("7_kvpt5")
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 snap_to_pixel = true
 tween_resource = SubResource("Resource_omjc0")
 tween_on_load = false
